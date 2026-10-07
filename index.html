@@ -5,9 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Probamo — independent manual QA for startups, solo builders, and AI-made products. Human feedback before your users find the bugs."
+      content="Probamo provides independent manual QA testing for startups and AI-built products — websites, webshops, and apps. Human feedback, bug reports with screenshots, and clear priorities before your users find issues."
     />
-    <title>Probamo — Human QA for builders &amp; startups</title>
+    <meta
+      name="keywords"
+      content="manual QA testing, startup QA, AI product testing, website QA, webshop testing, regression testing, UAT, exploratory testing, usability testing"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://probamo.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Probamo" />
+    <meta property="og:title" content="Probamo — Manual QA testing for startups &amp; AI-built products" />
+    <meta
+      property="og:description"
+      content="Independent human QA for websites, webshops, and apps. Bug Catcher sessions, regression packs, and written reports with impact and screenshots."
+    />
+    <meta property="og:url" content="https://probamo.com/" />
+    <meta property="og:locale" content="en_EU" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Probamo — Manual QA testing for startups" />
+    <meta
+      name="twitter:description"
+      content="Human manual QA before launch and after deploy. Reports with severity, impact, and visual proof."
+    />
+    <title>Probamo — Manual QA testing for startups &amp; AI-built products</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,13 +37,46 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://probamo.com/#organization",
+            "name": "Probamo",
+            "url": "https://probamo.com/",
+            "email": "sara@probamo.com",
+            "description": "Independent manual QA testing agency for startups, solo builders, and AI-assisted digital products."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://probamo.com/#website",
+            "url": "https://probamo.com/",
+            "name": "Probamo",
+            "publisher": { "@id": "https://probamo.com/#organization" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://probamo.com/#service",
+            "name": "Probamo Manual QA",
+            "url": "https://probamo.com/",
+            "email": "sara@probamo.com",
+            "serviceType": "Manual quality assurance testing",
+            "description": "Manual QA testing, functional and regression testing, website and webshop QA, UAT, and API testing for digital products.",
+            "provider": { "@id": "https://probamo.com/#organization" },
+            "areaServed": ["EU", "Worldwide"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="bg-grid" aria-hidden="true"></div>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="logo" href="#top">
+        <a class="logo" href="/">
           <span class="logo-mark">◈</span>
           Probamo
         </a>
@@ -61,9 +116,8 @@
             <p class="eyebrow">Manual QA · Human feedback · AI-era products</p>
             <h1>We test like your users — not like your build log.</h1>
             <p class="lead">
-              Probamo is an independent manual QA agency for startups, solo entrepreneurs, and
-              teams shipping with AI. Real people explore your websites, web apps, shops, and mobile
-              products so you launch strong and deploy with confidence.
+              Independent manual QA for startups and solo builders. Real people test your product
+              and send a clear bug report — before your users find the issues.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#pricing">See Bug Catcher — €295</a>
@@ -72,7 +126,7 @@
             <ul class="hero-tags">
               <li>Websites &amp; webshops</li>
               <li>Web &amp; mobile apps</li>
-              <li>Desktop &amp; digital products</li>
+              <li>Digital products — courses, PDFs, downloads</li>
             </ul>
           </div>
           <div class="hero-panel" aria-hidden="true">
@@ -96,43 +150,42 @@
         </div>
       </section>
 
+      <section class="pitch">
+        <div class="container pitch-inner">
+          <p>
+            <strong>How it works:</strong> you share access → we test as real users → you get a report
+            with severity, impact, and screenshots or video.
+          </p>
+        </div>
+      </section>
+
       <section id="why" class="section">
         <div class="container">
-          <header class="section-head">
-            <h2>Why Probamo exists</h2>
-            <p>
-              Speed from AI and no-code is real — so is the need for a second pair of eyes that
-              thinks like a customer, not a spec sheet.
-            </p>
+          <header class="section-head section-head-tight">
+            <h2>Why Probamo</h2>
           </header>
           <div class="cards cards-why">
             <article class="card">
-              <h3>After important deployments</h3>
-              <p>
-                Human check on the releases that matter. We find bugs and rough edges before your
-                users do — while you still control the narrative.
-              </p>
+              <h3>Stability after each deployment</h3>
+              <p>Human check after releases so bugs are caught before your users hit them.</p>
             </article>
             <article class="card">
-              <h3>Before you go to market</h3>
-              <p>
-                A strong launch needs more than “it works on my machine.” We stress paths, content,
-                and first impressions so day one feels polished.
-              </p>
+              <h3>Launch with confidence</h3>
+              <p>Pre-launch testing on real paths and devices — not just “works on my machine.”</p>
             </article>
             <article class="card">
-              <h3>We see what you don’t</h3>
-              <p>
-                Builders know the happy path. We walk in as users — confused, rushed, on the wrong
-                browser — and report what actually breaks trust.
-              </p>
+              <h3>Human check for AI generated products</h3>
+              <p>AI ships fast; we catch edge cases, UX gaps, and trust issues a builder often misses.</p>
             </article>
             <article class="card">
               <h3>Independent QA for agencies &amp; clients</h3>
+              <p>Verify work before handover, or add us as the independent QA layer in your client offer.</p>
+            </article>
+            <article class="card">
+              <h3>QA for creators</h3>
               <p>
-                Someone else building for you? We verify work before handover. You build for others?
-                We can be the independent QA layer in your offer — including UAT — so delivery is
-                credible and complete.
+                You focus on the creative work — we make sure checkout, delivery, and access actually
+                work so customers get what they paid for, seamlessly.
               </p>
             </article>
           </div>
@@ -141,101 +194,59 @@
 
       <section id="services" class="section section-alt">
         <div class="container">
-          <header class="section-head">
+          <header class="section-head section-head-tight">
             <h2>What we do</h2>
-            <p>
-              Manual, thoughtful testing — not checkbox automation. Types overlap: broader scopes
-              include narrower ones. The diagram shows how they nest.
-            </p>
+            <p>All of it is <strong>manual QA</strong> — humans, not scripts. Labels overlap; we pick the mix for your product.</p>
           </header>
 
-          <div class="service-map" role="img" aria-label="Service scope diagram: Manual QA wraps functional and related checks; UAT and API are separate services">
-            <div class="service-map-layout">
-              <div class="service-nest">
-                <div class="nest-layer nest-manual">
-                  <div class="nest-head">
-                    <span class="nest-icon" aria-hidden="true">☂</span>
-                    <div>
-                      <h3 class="nest-title">Manual QA testing</h3>
-                      <p class="nest-desc">The umbrella — every engagement is hands-on, human judgment.</p>
-                    </div>
-                  </div>
-
-                  <div class="nest-layer nest-functional">
-                    <div class="nest-head nest-head-compact">
-                      <span class="nest-icon nest-icon-sm" aria-hidden="true">⚙</span>
-                      <div>
-                        <h4 class="nest-title">Functional testing</h4>
-                        <p class="nest-desc">Features, flows, and behavior — does the product do what it should?</p>
-                      </div>
-                    </div>
-
-                    <ul class="nest-tags nest-tags-core">
-                      <li>Sanity testing</li>
-                      <li>Regression testing</li>
-                      <li>Exploratory testing</li>
-                      <li>Ad hoc testing</li>
-                      <li>End-to-end testing</li>
-                    </ul>
-
-                    <p class="nest-sublabel">Often combined with functional work</p>
-                    <ul class="nest-tags">
-                      <li>Compatibility testing</li>
-                      <li>UX / UI design review</li>
-                    </ul>
-                  </div>
-
-                  <div class="nest-sibling">
-                    <h4 class="nest-title">Content QA</h4>
-                    <p class="nest-desc">Copy, labels, and messaging — under manual QA, not the functional focus.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="service-separate">
-                <p class="separate-label">Separate services</p>
-                <article class="separate-card">
-                  <h3>User acceptance testing (UAT)</h3>
-                  <p>Validation against your business rules and sign-off criteria — scoped and quoted per project.</p>
-                </article>
-                <article class="separate-card">
-                  <h3>API testing</h3>
-                  <p>Endpoints, contracts, and integrations — scoped from your API surface and environments.</p>
-                </article>
+          <div class="service-simple">
+            <div class="service-simple-row service-simple-umbrella">
+              <span class="logo-mark" aria-hidden="true">◈</span>
+              <div>
+                <h3>Manual QA testing</h3>
+                <p>Covers everything below — every engagement is hands-on.</p>
               </div>
             </div>
 
-            <p class="service-map-caption">
-              <span class="cap-dot cap-overlap"></span> Nested = included in broader scope &nbsp;
-              <span class="cap-dot cap-separate"></span> Standalone = own pack &amp; quote
-            </p>
+            <div class="service-simple-groups">
+              <div class="service-simple-group">
+                <h4>Functional &amp; flows</h4>
+                <ul class="nest-tags nest-tags-core">
+                  <li>Functional testing</li>
+                  <li>Sanity &amp; regression</li>
+                  <li>Exploratory &amp; ad hoc</li>
+                  <li>End-to-end testing</li>
+                  <li>Compatibility</li>
+                  <li>UX / UI review</li>
+                </ul>
+              </div>
+              <div class="service-simple-group">
+                <h4>Content</h4>
+                <ul class="nest-tags">
+                  <li>Content QA</li>
+                  <li>Translation checks</li>
+                </ul>
+              </div>
+              <div class="service-simple-group">
+                <h4>Quoted per scope</h4>
+                <ul class="nest-tags">
+                  <li>UAT</li>
+                  <li>API testing</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="deliverables" class="section">
+      <section id="deliverables" class="section section-compact">
         <div class="container">
-          <header class="section-head">
-            <h2>What you get</h2>
-            <p>Every engagement is documented so your team can act, not guess.</p>
-          </header>
-          <div class="deliverables">
-            <div class="deliverable">
-              <span class="deliverable-icon">01</span>
-              <h3>Written test report</h3>
-              <p>Clear findings, steps to reproduce, and context — ready to paste into your tracker.</p>
-            </div>
-            <div class="deliverable">
-              <span class="deliverable-icon">02</span>
-              <h3>Impact &amp; priority</h3>
-              <p>Severity plus an impact estimate so you know what blocks launch vs. what can wait.</p>
-            </div>
-            <div class="deliverable">
-              <span class="deliverable-icon">03</span>
-              <h3>Visual proof</h3>
-              <p>Screenshots or short video clips for UI, layout, and flow issues — easy to share with devs.</p>
-            </div>
-          </div>
+          <h2 class="deliverables-heading">Every report includes</h2>
+          <ul class="deliverables-inline">
+            <li>Written findings &amp; steps to reproduce</li>
+            <li>Severity &amp; impact estimate</li>
+            <li>Screenshots or video</li>
+          </ul>
         </div>
       </section>
 
@@ -252,16 +263,13 @@
               <div class="featured-copy">
                 <h3>Bug Catcher</h3>
                 <p class="featured-desc">
-                  A focused <strong>6-hour manual testing session</strong> on your product — ideal for
-                  pre-launch sweeps, post-release sanity checks, or a deep dive on a critical flow.
-                  Real exploratory and functional testing with a full written report, impact estimates,
-                  priorities, and visuals for every issue we find.
+                  <strong>6 hours</strong> of focused manual testing — pre-launch, post-release, or a
+                  critical flow — with full report and visuals.
                 </p>
                 <ul class="check-list">
-                  <li>6 hours of dedicated human QA</li>
-                  <li>Report with severity, impact, and reproduction steps</li>
-                  <li>Screenshots or video where it helps</li>
-                  <li>Best for startups &amp; builders who need independent feedback fast</li>
+                  <li>Exploratory &amp; functional testing</li>
+                  <li>Prioritised bug list with impact</li>
+                  <li>Our most popular pack for startups</li>
                 </ul>
               </div>
               <div class="featured-price">
@@ -277,9 +285,8 @@
               <h3>Website QA</h3>
               <p class="price-tier"><span class="from">from</span> €55</p>
               <p class="price-blurb">
-                Manual QA review of your marketing or brochure site: every interactive element
-                exercised — buttons, forms, links, basic functionality, and layout — with a bug
-                report including screenshots and severity.
+                Buttons, forms, links, layout, and core functionality — with a bug report and
+                screenshots.
               </p>
               <details class="price-details">
                 <summary>Advanced — from €205</summary>
@@ -299,9 +306,8 @@
               <h3>Webshop QA</h3>
               <p class="price-tier"><span class="from">from</span> €75</p>
               <p class="price-blurb">
-                Same thorough pass as Website QA, plus <strong>checkout flow</strong> and
-                <strong>post-purchase flow</strong> tested end-to-end using a test product — where
-                payment and order emails should behave like production (with safe test data).
+                Website QA plus <strong>checkout</strong> and <strong>post-purchase</strong> tested
+                end-to-end with a test product.
               </p>
               <details class="price-details">
                 <summary>Advanced — from €280</summary>
@@ -362,10 +368,20 @@
               <h3>API testing</h3>
               <p class="price-tier"><span class="from">Custom quote</span></p>
               <p class="price-blurb">
-                Manual and scenario-based checks of your APIs — endpoints, payloads, auth, and error
-                handling. We size the work from your documentation and environments, then quote.
+                Endpoints, payloads, auth, and error handling — scoped from your API docs, then quoted.
               </p>
               <a class="text-link" href="#contact">Request API testing quote →</a>
+            </article>
+
+            <article class="price-card">
+              <h3>Digital products QA</h3>
+              <p class="price-tier"><span class="from">Custom quote</span></p>
+              <p class="price-blurb">
+                For creators selling <strong>PDFs, online courses, templates</strong>, and other digital
+                goods — we test the full journey: landing page, checkout, delivery, and access
+                (end-to-end, as a buyer would).
+              </p>
+              <a class="text-link" href="#contact">Request digital products quote →</a>
             </article>
           </div>
         </div>
@@ -391,6 +407,11 @@
       <div class="container footer-inner">
         <p><span class="logo-mark">◈</span> Probamo — independent manual QA</p>
         <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="/privacy.html">Privacy policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/terms.html">Terms &amp; conditions</a>
+        </nav>
       </div>
     </footer>
 
