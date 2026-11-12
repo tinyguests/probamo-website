@@ -11,7 +11,7 @@ Hosted on Cloudflare Workers; every push to `main` deploys automatically.
 
 ## Contact form
 
-Enquiries are sent through Proton SMTP from `forms@probamo.com` to `sara@probamo.com`.
+Enquiries are sent through Proton SMTP from `forms@probamo.com` to `sara@probamo.com` (the public address on the site is testing@probamo.com).
 Secrets are set in Cloudflare (Workers & Pages → probamo-website → Settings → Variables and Secrets):
 
 - `SMTP_TOKEN` — Proton SMTP token for forms@probamo.com (required)

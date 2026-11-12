@@ -176,7 +176,7 @@ function oneLine(value) {
 }
 
 function fallbackMessage() {
-  return "We couldn't send your message just now. Please email sara@probamo.com directly.";
+  return "We couldn't send your message just now. Please email testing@probamo.com directly.";
 }
 
 function json(body, status = 200, headers = {}) {

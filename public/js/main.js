@@ -43,7 +43,7 @@ if (contactForm) {
   const showSuccess = () => {
     contactForm.innerHTML =
       '<div class="form-success" tabindex="-1"><h3>Thanks, your enquiry is on its way.</h3>' +
-      "<p>We’ll reply by email to confirm scope and timing. If it’s urgent, write to sara@probamo.com.</p></div>";
+      "<p>We’ll reply by email to confirm scope and timing. If it’s urgent, write to testing@probamo.com.</p></div>";
     contactForm.querySelector(".form-success").focus();
   };
 
@@ -58,7 +58,7 @@ if (contactForm) {
   const result = new URLSearchParams(window.location.search).get("enquiry");
   if (result === "sent") showSuccess();
   if (result === "error") {
-    showStatus("We couldn’t send your message. Please email sara@probamo.com directly.", true);
+    showStatus("We couldn’t send your message. Please email testing@probamo.com directly.", true);
   }
 
   contactForm.addEventListener("submit", async (event) => {
@@ -92,9 +92,9 @@ if (contactForm) {
         showSuccess();
         return;
       }
-      showStatus(outcome.error || "Something went wrong. Please email sara@probamo.com directly.", true);
+      showStatus(outcome.error || "Something went wrong. Please email testing@probamo.com directly.", true);
     } catch {
-      showStatus("You seem to be offline. Please try again, or email sara@probamo.com.", true);
+      showStatus("You seem to be offline. Please try again, or email testing@probamo.com.", true);
     }
 
     submitButton.disabled = false;
