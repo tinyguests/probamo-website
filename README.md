@@ -8,6 +8,7 @@ Hosted on Cloudflare Workers; every push to `main` deploys automatically.
 - `public/` — the website (HTML, CSS, JS, fonts, images, `_headers`)
 - `src/index.js` — Worker that handles the contact form (`POST /api/contact`) and serves `public/`
 - `wrangler.jsonc` — Cloudflare config
+- `tools/build_service_pages.py` — content for the service landing pages (`/website-qa`, `/webshop-qa`, …). Edit it and run `python3 tools/build_service_pages.py` to regenerate the pages in `public/`.
 
 ## Contact form
 

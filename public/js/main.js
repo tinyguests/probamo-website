@@ -54,6 +54,12 @@ if (contactForm) {
     });
   });
 
+  // Pre-select the package from a link such as /?package=Website%20QA#contact (used by service pages)
+  const requestedPackage = new URLSearchParams(window.location.search).get("package");
+  if (requestedPackage && [...packageSelect.options].some((o) => o.value === requestedPackage)) {
+    packageSelect.value = requestedPackage;
+  }
+
   // Result of a submission made without JavaScript
   const result = new URLSearchParams(window.location.search).get("enquiry");
   if (result === "sent") showSuccess();

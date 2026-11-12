@@ -59,7 +59,9 @@
             "@id": "https://probamo.com/#website",
             "url": "https://probamo.com/",
             "name": "Probamo",
-            "publisher": { "@id": "https://probamo.com/#organization" }
+            "publisher": {
+              "@id": "https://probamo.com/#organization"
+            }
           },
           {
             "@type": "ProfessionalService",
@@ -69,8 +71,128 @@
             "email": "testing@probamo.com",
             "serviceType": "Manual quality assurance testing",
             "description": "Manual QA testing, functional and regression testing, website and webshop QA, UAT, and API testing for digital products.",
-            "provider": { "@id": "https://probamo.com/#organization" },
-            "areaServed": ["EU", "Worldwide"]
+            "provider": {
+              "@id": "https://probamo.com/#organization"
+            },
+            "areaServed": [
+              "EU",
+              "Worldwide"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Manual QA testing services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Website QA testing",
+                    "url": "https://probamo.com/website-qa"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Webshop and e-commerce testing",
+                    "url": "https://probamo.com/webshop-qa"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mobile app testing",
+                    "url": "https://probamo.com/mobile-app-testing"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Regression testing",
+                    "url": "https://probamo.com/regression-testing"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Testing AI-built products",
+                    "url": "https://probamo.com/ai-app-testing"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Digital products QA",
+                    "url": "https://probamo.com/digital-products-qa"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "IoT, robotics and hardware software",
+                    "url": "https://probamo.com/iot-hardware-testing"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is manual QA testing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Manual QA (quality assurance) testing means real people use your website, webshop or app the way your customers would, looking for bugs, confusing flows and anything that blocks them. You get a written report with steps to reproduce, severity and screenshots."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is manual testing different from automated testing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Automated tests check exactly what they were written to check. People notice when something looks wrong, feels slow or confuses users. Manual testing works well alongside automated tests, or before you have them."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What do you need from me to start?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The URL or app build, any logins or test accounts, and a short note on which flows matter most. We confirm scope and price before we start."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does testing take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Reports typically arrive within 2–3 working days, depending on scope."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does payment work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "50% upfront to confirm your booking, and the rest within 7 days of receiving the report. Prices are final; no VAT is added."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where are you based?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Probamo is based in Zagreb, Croatia, and works remotely with clients anywhere."
+                }
+              }
+            ]
           }
         ]
       }
@@ -201,7 +323,7 @@
       <section id="services" class="section section-alt">
         <div class="container">
           <header class="section-head section-head-tight">
-            <h2>What we do</h2>
+            <h2>Manual QA testing services</h2>
             <p>All of it is <strong>manual QA</strong> — humans, not scripts. Labels overlap; we pick the mix for your product.</p>
           </header>
 
@@ -244,6 +366,15 @@
               </div>
             </div>
           </div>
+          <nav class="service-links" aria-label="Testing services">
+            <a href="/website-qa">Website QA testing<span>Forms, links, layout and core functions</span></a>
+            <a href="/webshop-qa">Webshop and e-commerce testing<span>Checkout and order emails, end to end</span></a>
+            <a href="/mobile-app-testing">Mobile app testing<span>Onboarding, core flows, interruptions</span></a>
+            <a href="/regression-testing">Regression testing<span>Prepared scenarios before every release</span></a>
+            <a href="/ai-app-testing">Testing AI-built products<span>A human check for AI-built products</span></a>
+            <a href="/digital-products-qa">Digital products QA<span>Courses, PDFs and templates, as a buyer</span></a>
+            <a href="/iot-hardware-testing">IoT, robotics and hardware software<span>Setup, companion apps and dashboards</span></a>
+          </nav>
         </div>
       </section>
 
@@ -454,6 +585,40 @@
         </div>
       </section>
 
+      <section id="faq" class="section" aria-labelledby="faq-h">
+        <div class="container faq-wrap">
+          <header class="section-head section-head-tight">
+            <h2 id="faq-h">Questions about manual QA testing</h2>
+          </header>
+          <div class="faq">
+            <details class="faq-item">
+              <summary>What is manual QA testing?</summary>
+              <p>Manual QA (quality assurance) testing means real people use your website, webshop or app the way your customers would, looking for bugs, confusing flows and anything that blocks them. You get a written report with steps to reproduce, severity and screenshots.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How is manual testing different from automated testing?</summary>
+              <p>Automated tests check exactly what they were written to check. People notice when something looks wrong, feels slow or confuses users. Manual testing works well alongside automated tests, or before you have them.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What do you need from me to start?</summary>
+              <p>The URL or app build, any logins or test accounts, and a short note on which flows matter most. We confirm scope and price before we start.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How long does testing take?</summary>
+              <p>Reports typically arrive within 2–3 working days, depending on scope.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How does payment work?</summary>
+              <p>50% upfront to confirm your booking, and the rest within 7 days of receiving the report. Prices are final; no VAT is added.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Where are you based?</summary>
+              <p>Probamo is based in Zagreb, Croatia, and works remotely with clients anywhere.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="section contact">
         <div class="container contact-inner">
           <div class="contact-intro">
@@ -527,6 +692,15 @@
       <div class="container footer-inner">
         <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent manual QA</p>
         <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <nav class="footer-services" aria-label="Services">
+          <a href="/website-qa">Website QA</a>
+          <a href="/webshop-qa">Webshop QA</a>
+          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/regression-testing">Regression testing</a>
+          <a href="/ai-app-testing">AI-built apps</a>
+          <a href="/digital-products-qa">Digital products</a>
+          <a href="/iot-hardware-testing">IoT &amp; hardware</a>
+        </nav>
         <nav class="footer-legal" aria-label="Legal">
           <a href="/privacy">Privacy policy</a>
           <span aria-hidden="true">·</span>
