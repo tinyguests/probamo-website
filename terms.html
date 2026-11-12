@@ -31,7 +31,25 @@
           <a href="/#pricing">Pricing</a>
           <a href="/#contact" class="nav-cta">Get a quote</a>
         </nav>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open menu"
+        >
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="menu-toggle-text">Menu</span>
+        </button>
       </div>
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <div class="mobile-nav-inner">
+          <a href="/#why">Why us</a>
+          <a href="/#services">Services</a>
+          <a href="/#pricing">Pricing</a>
+          <a href="/#contact" class="mobile-nav-cta">Get a quote</a>
+        </div>
+      </nav>
     </header>
 
     <main class="legal-main container">
@@ -135,5 +153,7 @@
         </nav>
       </div>
     </footer>
+
+    <script src="/js/main.js"></script>
   </body>
 </html>
