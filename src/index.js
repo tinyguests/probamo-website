@@ -15,6 +15,9 @@ const PACKAGES = [
   "User acceptance testing (UAT)",
   "API testing",
   "Digital products QA",
+  "Mobile app testing",
+  "Hardware, robotics or IoT software",
+  "Sample report request",
   "Not sure yet",
 ];
 

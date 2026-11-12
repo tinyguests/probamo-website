@@ -238,6 +238,8 @@
                 <ul class="nest-tags">
                   <li>UAT</li>
                   <li>API testing</li>
+                  <li>Mobile apps</li>
+                  <li>Hardware, robotics &amp; IoT software</li>
                 </ul>
               </div>
             </div>
@@ -245,14 +247,75 @@
         </div>
       </section>
 
-      <section id="deliverables" class="section section-compact">
+      <section id="deliverables" class="section">
         <div class="container">
-          <h2 class="deliverables-heading">Every report includes</h2>
-          <ul class="deliverables-inline">
-            <li>Written findings &amp; steps to reproduce</li>
-            <li>Severity &amp; impact estimate</li>
-            <li>Screenshots or video</li>
-          </ul>
+          <header class="section-head section-head-tight">
+            <h2>What you get</h2>
+            <p>A written report your team can act on straight away. Every finding looks like this.</p>
+          </header>
+
+          <div class="proof-grid">
+            <div class="proof-copy">
+              <h3 class="proof-subhead">Every report includes</h3>
+              <ul class="proof-list">
+                <li>Written findings with steps to reproduce</li>
+                <li>Severity and an estimate of the impact on your users</li>
+                <li>Screenshots or screen recordings</li>
+                <li>The device, browser and build each issue was found on</li>
+              </ul>
+              <div class="proof-request">
+                <p>
+                  Want to see a full report first? We share a redacted sample report on request.
+                </p>
+                <a class="btn btn-ghost" href="#contact" data-package="Sample report request">Request a sample report</a>
+              </div>
+            </div>
+
+            <figure class="bug-sample">
+              <figcaption class="bug-sample-label">Example finding · fictional webshop</figcaption>
+              <article class="bug-card" aria-label="Example bug report entry">
+                <header class="bug-head">
+                  <span class="bug-id">BUG-014</span>
+                  <span class="bug-sev bug-sev-high">High</span>
+                  <span class="bug-tag">Checkout</span>
+                </header>
+                <h4 class="bug-title">“Pay now” does nothing after changing the delivery country</h4>
+                <dl class="bug-meta">
+                  <div><dt>Environment</dt><dd>iPhone 13 · iOS 18 · Safari · staging build 2.4.1</dd></div>
+                  <div><dt>Impact</dt><dd>Mobile customers who change country at checkout can’t pay. Lost sales.</dd></div>
+                </dl>
+                <div class="bug-block">
+                  <span class="bug-k">Steps to reproduce</span>
+                  <ol>
+                    <li>Add any product to the cart</li>
+                    <li>At checkout, enter a delivery address in Croatia</li>
+                    <li>Change the delivery country to Slovenia</li>
+                    <li>Tap “Pay now”</li>
+                  </ol>
+                </div>
+                <div class="bug-block bug-two">
+                  <div><span class="bug-k">Expected</span><p>Payment form opens with the updated shipping cost.</p></div>
+                  <div><span class="bug-k">Actual</span><p>Button spins for a second, then nothing happens. No error is shown.</p></div>
+                </div>
+                <footer class="bug-foot">
+                  <span class="bug-attach">▶ screen-recording.mp4 · 0:18</span>
+                  <span class="bug-attach">▣ console-log.txt</span>
+                </footer>
+              </article>
+            </figure>
+          </div>
+
+          <div class="tested-on">
+            <h3 class="proof-subhead">Products we’ve tested</h3>
+            <ul class="nest-tags">
+              <li>Web apps</li>
+              <li>Mobile apps</li>
+              <li>Software for hardware</li>
+              <li>Robotics</li>
+              <li>IoT</li>
+              <li>Digital products</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -428,6 +491,9 @@
                 <option value="User acceptance testing (UAT)">User acceptance testing (UAT)</option>
                 <option value="API testing">API testing</option>
                 <option value="Digital products QA">Digital products QA</option>
+                <option value="Mobile app testing">Mobile app testing</option>
+                <option value="Hardware, robotics or IoT software">Hardware, robotics or IoT software</option>
+                <option value="Sample report request">Request a sample report</option>
               </select>
             </div>
             <div class="field field-wide">
