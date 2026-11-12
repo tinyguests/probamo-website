@@ -274,7 +274,7 @@
               <div class="featured-price">
                 <p class="price-was"><s>€315</s></p>
                 <p class="price-now"><span>€295</span></p>
-                <a class="btn btn-primary btn-block" href="#contact">Book Bug Catcher</a>
+                <a class="btn btn-primary btn-block" href="#contact" data-package="Bug Catcher">Book Bug Catcher</a>
               </div>
             </div>
           </article>
@@ -341,7 +341,7 @@
                 — agreed day and time when your app is under review — so releases don’t slip through
                 untested.
               </p>
-              <a class="text-link" href="#contact">Request regression QA quote →</a>
+              <a class="text-link" href="#contact" data-package="Regression QA">Request regression QA quote →</a>
             </article>
 
             <article class="price-card">
@@ -352,7 +352,7 @@
                 ideal before handover to clients or go-live sign-off. Scope is estimated upfront,
                 then quoted as a fixed pack.
               </p>
-              <a class="text-link" href="#contact">Request UAT quote →</a>
+              <a class="text-link" href="#contact" data-package="User acceptance testing (UAT)">Request UAT quote →</a>
             </article>
 
             <article class="price-card">
@@ -361,7 +361,7 @@
               <p class="price-blurb">
                 Endpoints, payloads, auth, and error handling — scoped from your API docs, then quoted.
               </p>
-              <a class="text-link" href="#contact">Request API testing quote →</a>
+              <a class="text-link" href="#contact" data-package="API testing">Request API testing quote →</a>
             </article>
 
             <article class="price-card">
@@ -372,7 +372,7 @@
                 goods — we test the full journey: landing page, checkout, delivery, and access
                 (end-to-end, as a buyer would).
               </p>
-              <a class="text-link" href="#contact">Request digital products quote →</a>
+              <a class="text-link" href="#contact" data-package="Digital products QA">Request digital products quote →</a>
             </article>
           </div>
         </div>
@@ -380,16 +380,66 @@
 
       <section id="contact" class="section contact">
         <div class="container contact-inner">
-          <div>
+          <div class="contact-intro">
             <h2>Ready for a human check?</h2>
             <p>
               Tell us what you’re shipping — URL, platform, timeline — and which package you have in
               mind. We’ll confirm scope (including extra pages or products) and get you scheduled.
             </p>
+            <div class="contact-email">
+              <span class="contact-email-label">Prefer email?</span>
+              <span class="contact-email-row">
+                <a href="mailto:sara@probamo.com?subject=QA%20enquiry" class="contact-email-address">sara@probamo.com</a>
+                <button type="button" class="copy-btn" data-copy="sara@probamo.com">Copy</button>
+              </span>
+            </div>
           </div>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:sara@probamo.com?subject=QA%20inquiry">sara@probamo.com</a>
-          </div>
+
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post" novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required />
+            </div>
+            <div class="field">
+              <label for="cf-website">Website or app URL <span class="optional">optional</span></label>
+              <input id="cf-website" name="website" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="https://" />
+            </div>
+            <div class="field">
+              <label for="cf-package">Package</label>
+              <select id="cf-package" name="package" required>
+                <option value="Not sure yet">Not sure yet</option>
+                <option value="Bug Catcher">Bug Catcher</option>
+                <option value="Website QA">Website QA</option>
+                <option value="Webshop QA">Webshop QA</option>
+                <option value="Product page check">Product page check</option>
+                <option value="Regression QA">Regression QA</option>
+                <option value="User acceptance testing (UAT)">User acceptance testing (UAT)</option>
+                <option value="API testing">API testing</option>
+                <option value="Digital products QA">Digital products QA</option>
+              </select>
+            </div>
+            <div class="field field-wide">
+              <label for="cf-deadline">Deadline or launch date <span class="optional">optional</span></label>
+              <input id="cf-deadline" name="deadline" type="text" maxlength="100" placeholder="e.g. launching 1 December" />
+            </div>
+            <div class="field field-wide">
+              <label for="cf-message">What should we test?</label>
+              <textarea id="cf-message" name="message" rows="5" maxlength="5000" required placeholder="Platform, key flows, devices you care about, anything that worries you."></textarea>
+            </div>
+            <div class="field-trap" aria-hidden="true">
+              <label for="cf-company-website">Leave this field empty</label>
+              <input id="cf-company-website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="form-footer field-wide">
+              <button type="submit" class="btn btn-primary">Send enquiry</button>
+              <p class="form-note">We only use your details to reply. See our <a href="/privacy">privacy policy</a>.</p>
+            </div>
+            <p class="form-status field-wide" id="form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>

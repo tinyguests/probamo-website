@@ -848,9 +848,9 @@ summary:focus-visible {
 /* Contact */
 .contact-inner {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 2.5rem;
+  align-items: start;
   padding: 2.5rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
@@ -861,13 +861,184 @@ summary:focus-visible {
   margin: 0 0 0.75rem;
 }
 
-.contact p {
+.contact-intro > p {
   margin: 0;
   color: var(--text-muted);
 }
 
-.contact-actions {
-  text-align: center;
+.contact-email {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-email-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.contact-email-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-email-address {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  user-select: all;
+}
+
+.copy-btn {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  color: var(--text);
+  border-color: rgba(61, 214, 195, 0.45);
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 7.5rem;
+}
+
+.field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2.25rem;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #5a6a7a;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.field [aria-invalid="true"] {
+  border-color: #ff6b63;
+}
+
+.field-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.form-footer .btn[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-status {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status.is-error {
+  color: #ff8a84;
+}
+
+.form-success {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(61, 214, 195, 0.45);
+  background: var(--accent-dim);
+}
+
+.form-success h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.form-success p {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 .site-footer {
@@ -994,5 +1165,13 @@ summary:focus-visible {
 
   .featured-price {
     min-width: unset;
+  }
+
+  .contact-inner {
+    padding: 1.5rem;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
   }
 }

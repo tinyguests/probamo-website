@@ -36,6 +36,18 @@ export default {
 };
 
 async function handleContact(request, env) {
+  const response = await processContact(request, env);
+  // A plain HTML form post (no JavaScript) gets sent back to the page with the result.
+  const accept = request.headers.get("Accept") || "";
+  if (accept.includes("text/html")) {
+    const outcome = await response.clone().json().catch(() => ({}));
+    const result = outcome.ok ? "sent" : "error";
+    return new Response(null, { status: 303, headers: { Location: `/?enquiry=${result}#contact` } });
+  }
+  return response;
+}
+
+async function processContact(request, env) {
   const origin = request.headers.get("Origin");
   if (origin && !ALLOWED_ORIGINS.includes(origin)) {
     return json({ ok: false, error: "Forbidden." }, 403);
