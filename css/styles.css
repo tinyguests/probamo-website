@@ -27,6 +27,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep anchor targets clear of the sticky header */
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
 body {
   margin: 0;
   font-family: var(--font);
