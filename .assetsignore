@@ -1,0 +1,6 @@
+# Repo files that should not be published on the website
+README.md
+.gitignore
+.assetsignore
+wrangler.jsonc
+.vercel
