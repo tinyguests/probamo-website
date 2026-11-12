@@ -1244,9 +1244,32 @@ summary:focus-visible {
   text-underline-offset: 3px;
 }
 
-.section-head .price-vat {
-  margin-top: 0.5rem;
+.price-facts {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
   font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.price-facts li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.price-facts li::before {
+  content: "◈";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  font-size: 0.65rem;
+  color: var(--accent);
+}
+
+.price-facts strong {
   color: var(--text);
 }
 
