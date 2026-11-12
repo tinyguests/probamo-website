@@ -1,19 +1,27 @@
 # Probamo website
 
-Static marketing site for Probamo — manual QA for startups and AI-era builders.
+Marketing site for Probamo — manual QA for startups and AI-era builders.
+Hosted on Cloudflare Workers; every push to `main` deploys automatically.
+
+## Structure
+
+- `public/` — the website (HTML, CSS, JS, fonts, images, `_headers`)
+- `src/index.js` — Worker that handles the contact form (`POST /api/contact`) and serves `public/`
+- `wrangler.jsonc` — Cloudflare config
+
+## Contact form
+
+Enquiries are sent through Proton SMTP from `forms@probamo.com` to `sara@probamo.com`.
+Secrets are set in Cloudflare (Workers & Pages → probamo-website → Settings → Variables and Secrets):
+
+- `SMTP_TOKEN` — Proton SMTP token for forms@probamo.com (required)
+- `TURNSTILE_SECRET` — Cloudflare Turnstile secret key (optional spam check)
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder:
-
 ```bash
-cd "/Users/luna/Documents/Probamo website"
-python3 -m http.server 8080
+npm install
+npx wrangler dev
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080).
-
-## Customize
-
-- Contact email: `sara@probamo.com` in `index.html`.
-- Adjust copy and prices in `index.html` as offers change.
+Put local secrets in `.dev.vars` (ignored by git).

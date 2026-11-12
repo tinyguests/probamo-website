@@ -1,0 +1,14 @@
+{
+  "name": "probamo-website",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "worker-mailer": "1.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "4.155.0"
+  }
+}
