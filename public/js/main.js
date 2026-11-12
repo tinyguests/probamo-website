@@ -116,3 +116,13 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     }, 2000);
   });
 });
+
+// Launch offer: switch to the regular price once the offer has ended
+const offer = document.querySelector("[data-offer-ends]");
+
+if (offer && Date.now() >= Date.parse(offer.dataset.offerEnds)) {
+  document.querySelectorAll("[data-offer-price]").forEach((el) => {
+    el.textContent = offer.dataset.regularPrice;
+  });
+  offer.querySelectorAll(".price-offer, .price-was").forEach((el) => el.remove());
+}
