@@ -34,8 +34,8 @@ def ico(name, cls=""):
 FAQ = [
     ("What is acceptance testing?",
      "Acceptance testing verifies that new software or a release does what was agreed, before you sign off, pay or go live. "
-     "We test it against your requirements and against how your staff and customers will really use it, then give a clear "
-     "recommendation: ready, ready with conditions, or not ready."),
+     "We test it against your requirements and against how your staff and customers will really use it, and you receive "
+     "a full report of findings with a plain-language summary, evidence for every issue and a call to go through it."),
     ("What is manual QA testing?",
      "Manual QA (quality assurance) testing means a real person uses your software the way your customers and staff would, "
      "looking for bugs, confusing steps and anything that blocks them. Automated tests only check what they were written to "
@@ -59,11 +59,8 @@ FAQ = [
      "Access to the software (a test environment, build or URL), test accounts, and whatever was agreed with the development "
      "team: a contract, specification, user stories or even emails. If nothing was written down, we help you capture the key "
      "expectations first."),
-    ("How long does it take?",
-     "A Health Check usually takes 2–3 working days. For larger releases, the timeline is agreed upfront around your sign-off "
-     "or launch date."),
     ("Where are you based?",
-     "Probamo is based in Zagreb and works remotely with clients worldwide. On-site visits and on-site testing are possible "
+     "Probamo is based in Zagreb, Croatia, and works remotely with clients worldwide. On-site visits and on-site testing are possible "
      "anywhere by prior agreement."),
 ]
 
@@ -294,7 +291,7 @@ page = f'''<!DOCTYPE html>
             <h2>Acceptance testing</h2>
             <p>
               Independent verification that new software or a release does what was agreed, whether it was built by your
-              own team or an external partner. You get a clear verdict before you sign off, pay or go live.
+              own team or an external partner. You get a full report of findings before you sign off, pay or go live.
             </p>
           </header>
 
@@ -306,6 +303,8 @@ page = f'''<!DOCTYPE html>
                 <li>Before go-live, while there is still time to fix things</li>
                 <li>Right after handover, during the warranty period</li>
                 <li>When taking over software built by someone else</li>
+                <li>When you need a fresh, independent eye with no stake in the development</li>
+                <li>When your team has no time or capacity for testing during development</li>
                 <li>On every release, as your ongoing testing partner</li>
               </ul>
             </div>
@@ -323,9 +322,11 @@ page = f'''<!DOCTYPE html>
             <div class="offer-col offer-out">
               <h3 class="proof-subhead">What you get</h3>
               <ul class="proof-list">
-                <li>A go / no-go recommendation in plain language</li>
-                <li>Every issue documented with evidence, ready for your development team</li>
-                <li>Issues ranked by business impact, not technical detail</li>
+                <li>A full report of findings with a plain-language summary</li>
+                <li>Detailed test scenarios and their results</li>
+                <li>Evidence for every issue: steps to reproduce, screenshots or recordings</li>
+                <li>Issues ranked by business impact, ready for your development team</li>
+                <li>A call to go through the findings with you</li>
                 <li>A retest of the fixes before you sign off</li>
               </ul>
               <a class="btn btn-primary" href="/book-a-call?service=Acceptance%20testing">Book a call about your release</a>
@@ -388,7 +389,7 @@ page = f'''<!DOCTYPE html>
             <div class="proof-copy">
               <h3 class="proof-subhead">Every report includes</h3>
               <ul class="proof-list">
-                <li>A summary for decision-makers, with a clear recommendation</li>
+                <li>A plain-language summary for decision-makers</li>
                 <li>Steps to reproduce every issue</li>
                 <li>Severity and the impact on your users and business</li>
                 <li>Screenshots or screen recordings</li>
@@ -456,7 +457,7 @@ page = f'''<!DOCTYPE html>
             <article class="card">
               {ico("pulse", "ico-coral")}
               <h3>Health Check</h3>
-              <p>A fixed-scope review of a website, webshop, mobile app or AI-built app, with a report in 2–3 working days. A good first engagement.</p>
+              <p>A fixed-scope review of a website, webshop, mobile app or AI-built app, with the timeline agreed upfront. A good first engagement.</p>
             </article>
           </div>
           <div class="offer-foot">
@@ -534,12 +535,12 @@ page = f'''<!DOCTYPE html>
             <li class="step">
               <span class="step-n">3</span>
               <h3>Testing</h3>
-              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+              <p>We test against your requirements and real use, and flag blockers and anything that could annoy or confuse your customers, or make them leave.</p>
             </li>
             <li class="step">
               <span class="step-n">4</span>
               <h3>Report and retest</h3>
-              <p>You receive the report and recommendation, and we retest the fixes before sign-off.</p>
+              <p>You receive the full report, we go through the findings with you on a call, and retest the fixes before sign-off.</p>
             </li>
           </ol>
           <div class="cta-band">

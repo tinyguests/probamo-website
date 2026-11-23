@@ -26,6 +26,8 @@ ICONS = {
     "compass": '<circle cx="12" cy="12" r="9"/><path d="M8 16l2-6 6-2-2 6-6 2"/>',
     "pulse": '<path d="M3 12h4l3 8 4-16 3 8h4"/>',
     "team": '<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4"/><path d="M15 19l2 2 4-4"/>',
+    "shield": '<path d="M12 3a12 12 0 0 0 8.5 3A12 12 0 0 1 12 21 12 12 0 0 1 3.5 6 12 12 0 0 0 12 3"/><path d="M9 12l2 2 4-4"/>',
+    "clock": '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
     "rocket": '<path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3-5a9 9 0 0 0 6-8a3 3 0 0 0-3-3a9 9 0 0 0-8 6a6 6 0 0 0-5 3"/><circle cx="15" cy="9" r="1"/>',
 }
 ICON_ORDER = ["", "ico-blue", "ico-coral", "ico-sun", "", "ico-blue"]
@@ -33,8 +35,8 @@ ICON_ORDER = ["", "ico-blue", "ico-coral", "ico-sun", "", "ico-blue"]
 STEPS = [
     ("Intro call", "Tell us about the product or project, your concerns and your deadline."),
     ("Scope and quote", "We define what will be tested and how many testing days it takes, then send a fixed quote."),
-    ("Testing", "We test against your requirements and real use, and flag blockers as soon as they appear."),
-    ("Report and retest", "You receive the report and recommendation, and we retest fixes before sign-off."),
+    ("Testing", "We test against your requirements and real use, and flag blockers and anything that could annoy or confuse your customers, or make them leave."),
+    ("Report and retest", "You receive the full report, we go through the findings with you on a call, and retest the fixes before sign-off."),
 ]
 
 MAIN_SERVICES = [
@@ -54,13 +56,15 @@ PAGES = [
         "service": "Acceptance testing",
         "eyebrow": "Core service",
         "h1": "Acceptance testing before you sign off",
-        "lead": "Independent verification that new software or a release does what was agreed, whether it was built by your own team or an external partner. You get a clear go / no-go recommendation before you sign off, pay or go live.",
+        "lead": "Independent verification that new software or a release does what was agreed, whether it was built by your own team or an external partner. You get a full report of findings before you sign off, pay or go live.",
         "when_h": "When to bring us in",
         "when": [
             ("flag", "Before milestone sign-off", "Check each milestone against the agreed scope before it is approved and invoiced."),
             ("rocket", "Before go-live", "Find blockers while there is still time to fix them, not after customers do."),
             ("handover", "After handover", "Use the warranty period to document defects while the development team is still obliged to fix them."),
             ("search", "When taking over software", "Get an independent picture of software built by someone else before you take responsibility for it."),
+            ("shield", "When you need an independent view", "A fresh eye from testers with no stake in the development, so the findings are neutral and nobody is marking their own work."),
+            ("clock", "When your team has no time to test", "Your team can’t set aside the time or capacity for a structured testing flow during development. We run it alongside them."),
         ],
         "test_h": "What we check",
         "tests": [
@@ -77,25 +81,26 @@ PAGES = [
               "Your own team knows the product best, but testing properly takes days they usually don’t have. Independent acceptance testing fills that gap: an outside team with no stake in the outcome checks the software from the business side, against your requirements, your users and your risks."]),
             ("Acceptance testing and UAT",
              ["User acceptance testing (UAT) is traditionally done by the people who will use the software. In practice, few businesses can spare them for long enough to test thoroughly. We run the acceptance test for you, using your requirements and real-world scenarios, and involve your users where their judgement matters most.",
-              "The result is a decision document, not just a bug list: what meets the agreement, what does not, what blocks sign-off, and what can wait."]),
+              "The result is a full report, not just a bug list: what meets the agreement, what does not, what blocks sign-off, and what can wait."]),
             ("Testing grounded in real operations",
              ["Our experience comes from operations-heavy industries: logistics, warehouse management, delivery services, e-commerce, micromobility, robotics and customer support. Software in these environments is used under time pressure, on shared devices and alongside other systems.",
               "We test with that reality in mind. Can a dispatcher get through a shift? Can a customer complete an order on a slow phone? Will the support team be flooded on launch day? Those questions decide whether a release is really ready."]),
         ],
         "deliverables": [
-            "A go / no-go recommendation in plain language",
+            "A full report of findings with a plain-language summary",
+            "Detailed test scenarios and their results",
             "Requirement-by-requirement status: met, partly met or missing",
-            "Every issue documented with steps to reproduce, severity and evidence",
+            "Evidence for every issue: steps to reproduce, screenshots or recordings",
             "Issues ranked by business impact, ready for your development team",
+            "A call to go through the findings with you",
             "A retest of the fixes before you sign off",
         ],
         "faq": [
-            ("What is acceptance testing?", "Acceptance testing verifies that new software or a release does what was agreed before you sign off, pay or go live. It is tested against requirements and real use, and ends with a clear recommendation: ready, ready with conditions, or not ready."),
+            ("What is acceptance testing?", "Acceptance testing verifies that new software or a release does what was agreed before you sign off, pay or go live. It is tested against requirements and real use, and results in a full report of findings with a plain-language summary."),
             ("What is the difference between acceptance testing and UAT?", "User acceptance testing (UAT) is acceptance testing carried out from the users’ point of view. We run it on your behalf, using your requirements and real-world scenarios, and involve your users where their input is needed."),
             ("Does it matter who built the software?", "No. We test software built by in-house teams and by external partners in the same way: against what was agreed and how it will be used."),
             ("What if nothing was written down?", "We help you capture the key expectations first, from contracts, emails, demos and your own knowledge of the business, so there is a clear basis for the test."),
             ("Will you work with our developers?", "You decide. Reports go to you; with your approval we share findings directly with your development team and retest their fixes."),
-            ("How long does an acceptance test take?", "It depends on the size of the release. The number of testing days is agreed upfront and stated in the quote, planned around your sign-off or launch date."),
         ],
         "related": ["manual-qa-testing", "regression-testing", "drop-off-audit"],
     },
@@ -166,7 +171,7 @@ PAGES = [
         "when": [
             ("refresh", "Before every release", "A regular testing window on your release schedule. Prepared scenarios confirm that new features work and existing ones still do."),
             ("compass", "Exploratory testing", "Unscripted testing that finds what checklists miss: unusual paths, real devices, slow connections, confusing steps."),
-            ("pulse", "Health Check", "A fixed-scope review of a website, webshop, mobile app or AI-built app, with a report in 2–3 working days."),
+            ("pulse", "Health Check", "A fixed-scope review of a website, webshop, mobile app or AI-built app, with the timeline agreed upfront."),
             ("team", "Extra testing capacity", "Additional testers when your own team is busy, without hiring."),
         ],
         "test_h": "What we test",
@@ -194,7 +199,7 @@ PAGES = [
             ("What is manual QA testing?", "Manual QA (quality assurance) testing means a person uses your software the way your customers and staff would, looking for bugs, confusing steps and anything that blocks them."),
             ("How is manual testing different from automated testing?", "Automated tests check exactly what they were written to check. Manual testers notice when something looks wrong, feels slow or confuses users. The two work best together."),
             ("Can you test on a regular schedule?", "Yes. Ongoing testing gives you an agreed number of testing days each month, scheduled around your releases."),
-            ("What is a Health Check?", "A fixed-scope review of a website, webshop, mobile app or AI-built app, with a report in 2–3 working days. It is a good first engagement."),
+            ("What is a Health Check?", "A fixed-scope review of a website, webshop, mobile app or AI-built app, with the timeline agreed upfront. It is a good first engagement."),
             ("What do you need from us?", "Access to a test environment, build or URL, test accounts, and a short note on which areas matter most."),
         ],
         "related": ["acceptance-testing", "regression-testing", "mobile-app-testing"],
@@ -226,7 +231,6 @@ PAGES = [
             ("What is website QA testing?", "Website QA testing checks that a site works as intended before and after it goes live: forms, links, layout, content and core functions, on the devices visitors use."),
             ("When should a website be tested?", "Before launch, after a redesign or migration, and after significant content or plugin updates."),
             ("Do you test WordPress, Webflow and other platforms?", "Yes. We test what visitors see and do, so the platform does not limit the test."),
-            ("How long does it take?", "A Health Check of a typical business website takes 2–3 working days."),
         ],
         "related": ["webshop-qa", "manual-qa-testing", "drop-off-audit"],
     },
@@ -306,7 +310,7 @@ PAGES = [
             ("A fixed testing window", "An agreed day and time for each release, so testing fits your schedule."),
             ("Changed areas", "Exploratory testing of what changed in the release, alongside the regression scenarios."),
             ("Fix verification", "Confirmation that reported issues are actually fixed."),
-            ("Release summary", "A short go / no-go summary for each release."),
+            ("Release summary", "A short summary of findings for each release."),
             ("Trend reporting", "Which areas break most often, so your team can focus effort."),
         ],
         "faq": [
@@ -342,7 +346,7 @@ PAGES = [
             ("Why do AI-built apps need testing?", "Generated code often handles the expected path well and the unexpected ones badly. Manual testing finds those gaps before users do."),
             ("Do you review the code?", "We test the application from the outside, as users do. Code review and penetration testing need a specialist."),
             ("Which tools do you test apps from?", "Any. We test the running application, regardless of how it was built."),
-            ("What is the best starting point?", "A Health Check: a fixed-scope review with a report in 2–3 working days."),
+            ("What is the best starting point?", "A Health Check: a fixed-scope review with the timeline agreed upfront."),
         ],
         "related": ["manual-qa-testing", "acceptance-testing", "website-qa"],
     },
@@ -537,7 +541,7 @@ def page(p):
         section(f'''          <header class="section-head section-head-tight">
             <h2 id="when-h">{esc(p["when_h"])}</h2>
           </header>
-          <div class="cards cards-four">
+          <div class="cards {"cards-three" if len(p["when"]) % 3 == 0 else "cards-four"}">
 {cards(p["when"], True)}
           </div>''', "when-h")
 
