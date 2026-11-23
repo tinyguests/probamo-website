@@ -1,0 +1,689 @@
+"""Generate public/index.html (keeps FAQ text identical in HTML and JSON-LD).
+
+Run from the repo root:  python3 tools/build_home.py && python3 tools/build_pages.py
+(build_pages.py then syncs the shared header and footer into the homepage.)
+"""
+import html, json
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parent.parent / "public" / "index.html"
+
+ICONS = dict(
+    package='<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3"/><path d="M12 12l8-4.5"/><path d="M12 12v9"/><path d="M12 12L4 7.5"/>',
+    userminus='<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 11h6"/>',
+    shield='<path d="M12 3a12 12 0 0 0 8.5 3A12 12 0 0 1 12 21 12 12 0 0 1 3.5 6 12 12 0 0 0 12 3"/><path d="M9 12l2 2 4-4"/>',
+    team='<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4"/><path d="M15 19l2 2 4-4"/>',
+    lock='<rect x="5" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+    scope='<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 13h6"/><path d="M8 17h4"/>',
+    search='<circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6"/>',
+    users='<circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/>',
+    chart='<path d="M4 19h16"/><path d="M4 15l4-6 4 2 4-5 4 4"/>',
+    refresh='<path d="M20 11A8.1 8.1 0 0 0 4.5 9M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"/>',
+    compass='<circle cx="12" cy="12" r="9"/><path d="M8 16l2-6 6-2-2 6-6 2"/>',
+    pulse='<path d="M3 12h4l3 8 4-16 3 8h4"/>',
+    alert='<path d="M12 9v4"/><path d="M10.4 3.9L2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.6 3.9a1.8 1.8 0 0 0-3.2 0"/><path d="M12 16h.01"/>',
+)
+
+
+def ico(name, cls=""):
+    c = f"ico {cls}".strip()
+    return (f'<span class="{c}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            f'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</svg></span>')
+
+
+FAQ = [
+    ("What is acceptance testing?",
+     "Acceptance testing verifies that new software or a release does what was agreed, before you sign off, pay or go live. "
+     "We test it against your requirements and against how your staff and customers will really use it, then give a clear "
+     "recommendation: ready, ready with conditions, or not ready."),
+    ("What is manual QA testing?",
+     "Manual QA (quality assurance) testing means a real person uses your software the way your customers and staff would, "
+     "looking for bugs, confusing steps and anything that blocks them. Automated tests only check what they were written to "
+     "check; a person notices when something looks wrong, feels slow or doesn’t make sense."),
+    ("What is a drop-off audit?",
+     "A drop-off audit finds out why users leave your product or never become paying customers. We test your product from your users’ point of view, combining an expert walkthrough, testing "
+     "with real users and, where available, your analytics and session recordings to find where users struggle, drop off or "
+     "decide not to pay, and what to fix first."),
+    ("Our developers already test. Why use independent testing?",
+     "Your team knows the product best, but developers test what they built, the way they built it, and rarely have time to "
+     "test end to end. Independent testers have no stake in the outcome and test from the business side: your requirements, "
+     "your users and your risks."),
+    ("Will this cause friction with our development team?",
+     "It usually reduces it. Issues arrive as clear, reproducible reports instead of vague complaints, so they are faster to "
+     "fix and harder to dispute. You decide who sees the report; with your approval we work directly with your developers."),
+    ("How much does it cost?",
+     "Every project is quoted individually. The quote states what will be tested, how many testing days are included and a "
+     "fixed price. One-off projects: 50% upfront and the rest within 7 days of the report. Ongoing testing is billed monthly. "
+     "No VAT is added."),
+    ("What do you need from us to start?",
+     "Access to the software (a test environment, build or URL), test accounts, and whatever was agreed with the development "
+     "team: a contract, specification, user stories or even emails. If nothing was written down, we help you capture the key "
+     "expectations first."),
+    ("How long does it take?",
+     "A Health Check usually takes 2–3 working days. For larger releases, the timeline is agreed upfront around your sign-off "
+     "or launch date."),
+    ("Where are you based?",
+     "Probamo is based in Zagreb and works remotely with clients worldwide. On-site visits and on-site testing are possible "
+     "anywhere by prior agreement."),
+]
+
+ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://probamo.com/#organization",
+            "name": "Probamo",
+            "legalName": "PROBAMO, obrt za usluge i trgovinu",
+            "address": {"@type": "PostalAddress", "streetAddress": "Biševska Ulica 2, Veliko Polje",
+                        "addressLocality": "Zagreb", "addressCountry": "HR"},
+            "url": "https://probamo.com/",
+            "email": "testing@probamo.com",
+            "description": "Independent software testing company: acceptance testing before sign-off, manual QA testing, and drop-off audits for products that lose users.",
+        },
+        {"@type": "WebSite", "@id": "https://probamo.com/#website", "url": "https://probamo.com/", "name": "Probamo",
+         "publisher": {"@id": "https://probamo.com/#organization"}},
+        {
+            "@type": "ProfessionalService",
+            "@id": "https://probamo.com/#service",
+            "name": "Probamo independent software testing",
+            "url": "https://probamo.com/",
+            "email": "testing@probamo.com",
+            "serviceType": "Software testing",
+            "description": "Acceptance testing, manual QA testing, regression testing and drop-off audits, delivered remotely worldwide with on-site testing by agreement.",
+            "provider": {"@id": "https://probamo.com/#organization"},
+            "areaServed": "Worldwide",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Software testing services",
+                "itemListElement": [
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n, "url": u}}
+                    for n, u in [
+                        ("Acceptance testing", "https://probamo.com/acceptance-testing"),
+                        ("Drop-off audit", "https://probamo.com/drop-off-audit"),
+                        ("Manual QA testing", "https://probamo.com/manual-qa-testing"),
+                        ("Regression testing", "https://probamo.com/regression-testing"),
+                        ("Mobile app testing", "https://probamo.com/mobile-app-testing"),
+                        ("IoT, robotics and hardware software", "https://probamo.com/iot-hardware-testing"),
+                        ("Website QA testing", "https://probamo.com/website-qa"),
+                        ("Webshop and e-commerce testing", "https://probamo.com/webshop-qa"),
+                    ]
+                ],
+            },
+        },
+        {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
+    ],
+}
+
+faq_html = "\n".join(
+    f'            <details class="faq-item">\n              <summary>{html.escape(q, quote=False)}</summary>\n'
+    f'              <p>{html.escape(a, quote=False)}</p>\n            </details>' for q, a in FAQ)
+
+TITLE = "Probamo — Independent acceptance testing, manual QA &amp; drop-off audits"
+DESC = ("Independent software testing for owners and managers: acceptance testing before sign-off, manual QA testing for "
+        "every release, and drop-off audits that show why users leave or never pay.")
+
+page = f'''<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{DESC}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://probamo.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Probamo" />
+    <meta property="og:title" content="{TITLE}" />
+    <meta property="og:description" content="You paid for software. Find out if it actually works. Independent acceptance testing, manual QA and drop-off audits." />
+    <meta property="og:url" content="https://probamo.com/" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content="https://probamo.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Probamo — independent software testing" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://probamo.com/og-image.png" />
+    <meta name="twitter:title" content="{TITLE}" />
+    <meta name="twitter:description" content="{DESC}" />
+    <title>{TITLE}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+{json.dumps(ld, ensure_ascii=False, indent=2)}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="/">
+          <span class="logo-mark" aria-hidden="true">◈</span>
+          Probamo
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="#acceptance">Acceptance testing</a>
+          <a href="#drop-off">Drop-off audit</a>
+          <a href="#manual-qa">Manual QA</a>
+          <a href="#how">How we work</a>
+          <a href="/book-a-call" class="nav-cta">Book a call</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="menu-toggle-text">Menu</span>
+        </button>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <div class="mobile-nav-inner">
+          <a href="#acceptance">Acceptance testing</a>
+          <a href="#drop-off">Drop-off audit</a>
+          <a href="#manual-qa">Manual QA</a>
+          <a href="#how">How we work</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <a href="/book-a-call" class="mobile-nav-cta">Book a call</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Independent software testing</p>
+            <h1>You paid for software. Find out if it <mark class="hl">actually works</mark>.</h1>
+            <p class="lead">
+              Your team knows the product best. What’s usually missing is the time and an independent eye to test it
+              properly. We give owners and managers a clear answer before sign-off, before launch, and before more is
+              spent on users who don’t stay.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
+              <a class="btn btn-ghost" href="#how">How we work</a>
+            </div>
+            <div class="doors">
+              <a class="door door-main" href="/acceptance-testing">
+                {ico("package")}
+                <span class="door-k">A release or delivery is ready</span>
+                <strong>Acceptance testing</strong>
+                <span class="door-d">Verify it against what was agreed before you sign off, pay or go live.</span>
+              </a>
+              <a class="door" href="/drop-off-audit">
+                {ico("userminus", "ico-coral")}
+                <span class="door-k">Users drop off or never pay</span>
+                <strong>Drop-off audit</strong>
+                <span class="door-d">We test your product as your users do, and show where and why they give up.</span>
+              </a>
+            </div>
+          </div>
+
+          <figure class="verdict report-shot" role="img" aria-label="Example acceptance summary: release not ready for sign-off, 2 blockers found">
+            <div class="verdict-card" aria-hidden="true">
+              <div class="shot-bar"><span class="logo-mark">◈</span> Probamo · Acceptance report</div>
+              <header class="verdict-head">
+                <span class="verdict-project">Customer portal · Release 2.0</span>
+                <span class="verdict-status">Not ready for sign-off</span>
+              </header>
+              <dl class="verdict-stats">
+                <div><dt>Checks</dt><dd>48</dd></div>
+                <div><dt>Passed</dt><dd class="ok">39</dd></div>
+                <div><dt>Issues</dt><dd class="warn">7</dd></div>
+                <div><dt>Blockers</dt><dd class="bad">2</dd></div>
+              </dl>
+              <ul class="verdict-list">
+                <li><span class="sev sev-bad">Blocker</span> Password reset email never arrives</li>
+                <li><span class="sev sev-bad">Blocker</span> Orders with more than 100 lines fail to save</li>
+                <li><span class="sev sev-warn">Major</span> Invoice PDF shows the wrong VAT rate</li>
+                <li><span class="sev sev-low">Minor</span> Date filter ignores the selected time zone</li>
+              </ul>
+              <div class="verdict-action" role="note">
+                {ico("alert")}
+                <div>
+                  <strong>Action required before sign-off</strong>
+                  <p>Development team to fix the 2 blockers. Retest is scheduled before release; hold sign-off and final payment until it passes.</p>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="problems" class="section section-alt">
+        <div class="container">
+          <header class="section-head section-head-tight">
+            <h2>Sound familiar?</h2>
+          </header>
+          <div class="cards cards-three">
+            <article class="card">
+              <h3>“It’s done,” says the development team.</h3>
+              <p>You’re not so sure, but you can’t pin down what’s wrong, and sign-off is due.</p>
+            </article>
+            <article class="card">
+              <h3>Launch is close. Nobody has tested it end to end.</h3>
+              <p>Each part was checked on its own. No one has used it the way your customers and staff will.</p>
+            </article>
+            <article class="card">
+              <h3>Every fix breaks something else.</h3>
+              <p>Old bugs return after each release, and you hear about them from customers first.</p>
+            </article>
+            <article class="card">
+              <h3>Your team knows the product, but has no time to test it.</h3>
+              <p>Proper testing takes days your people don’t have, so releases go out on hope.</p>
+            </article>
+            <article class="card">
+              <h3>People sign up, look around and leave.</h3>
+              <p>Downloads and sign-ups look fine. Activity a week later doesn’t.</p>
+            </article>
+            <article class="card">
+              <h3>Trials don’t turn into paying customers.</h3>
+              <p>Reviews are lukewarm, and nobody can say exactly why people don’t buy.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="acceptance" class="section">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Core service</p>
+            <h2>Acceptance testing</h2>
+            <p>
+              Independent verification that new software or a release does what was agreed, whether it was built by your
+              own team or an external partner. You get a clear verdict before you sign off, pay or go live.
+            </p>
+          </header>
+
+          <div class="offer-grid">
+            <div class="offer-col">
+              <h3 class="proof-subhead">When to bring us in</h3>
+              <ul class="proof-list">
+                <li>Before signing off a milestone or release</li>
+                <li>Before go-live, while there is still time to fix things</li>
+                <li>Right after handover, during the warranty period</li>
+                <li>When taking over software built by someone else</li>
+                <li>On every release, as your ongoing testing partner</li>
+              </ul>
+            </div>
+            <div class="offer-col">
+              <h3 class="proof-subhead">What we check</h3>
+              <ul class="proof-list">
+                <li>Requirements, specifications and user stories</li>
+                <li>Key journeys end to end, as customers and staff will use them</li>
+                <li>Roles, permissions and data that must be right</li>
+                <li>Payments, emails, integrations, devices and browsers</li>
+                <li>That existing features still work after changes</li>
+                <li>What nobody wrote down, but every user will expect</li>
+              </ul>
+            </div>
+            <div class="offer-col offer-out">
+              <h3 class="proof-subhead">What you get</h3>
+              <ul class="proof-list">
+                <li>A go / no-go recommendation in plain language</li>
+                <li>Every issue documented with evidence, ready for your development team</li>
+                <li>Issues ranked by business impact, not technical detail</li>
+                <li>A retest of the fixes before you sign off</li>
+              </ul>
+              <a class="btn btn-primary" href="/book-a-call?service=Acceptance%20testing">Book a call about your release</a>
+              <a class="text-link more-link" href="/acceptance-testing">More about acceptance testing →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="drop-off" class="section section-alt">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">For products that lose users</p>
+            <h2>Drop-off audit</h2>
+            <p>
+              When people try a product and leave, there is usually a specific reason: a confusing step, a flow that fails
+              on one device, or a promise the product doesn’t keep. We test your product from your users’ point of view to
+              find it, and show you what to fix first.
+            </p>
+          </header>
+
+          <div class="cards cards-three">
+            <article class="card">
+              {ico("search")}
+              <h3>Expert walkthrough</h3>
+              <p>We go through sign-up, onboarding, first use and upgrade as a new user would, on the devices your users have.</p>
+            </article>
+            <article class="card">
+              {ico("users", "ico-coral")}
+              <h3>Testing with real users</h3>
+              <p>We recruit people who match your audience and observe where they hesitate, get lost or give up.</p>
+            </article>
+            <article class="card">
+              {ico("chart", "ico-blue")}
+              <h3>Analytics and recordings</h3>
+              <p>Where analytics or session recordings exist, we review them to confirm where users drop off and link it to the cause.</p>
+            </article>
+          </div>
+          <div class="offer-foot">
+            <p class="offer-note">
+              Use one, two or all three. One report covers where users leave, why, the likely business impact, and which
+              fixes matter most.
+            </p>
+            <div class="foot-actions">
+              <a class="text-link" href="/drop-off-audit">More about the drop-off audit →</a>
+              <a class="btn btn-ghost" href="/book-a-call?service=Drop-off%20audit">Book a call about a drop-off audit</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reports" class="section">
+        <div class="container">
+          <header class="section-head section-head-tight">
+            <h2>Evidence, not opinions</h2>
+            <p>Every issue is documented so it can be fixed straight away, without debate.</p>
+          </header>
+
+          <div class="proof-grid">
+            <div class="proof-copy">
+              <h3 class="proof-subhead">Every report includes</h3>
+              <ul class="proof-list">
+                <li>A summary for decision-makers, with a clear recommendation</li>
+                <li>Steps to reproduce every issue</li>
+                <li>Severity and the impact on your users and business</li>
+                <li>Screenshots or screen recordings</li>
+                <li>The device, browser and build each issue was found on</li>
+              </ul>
+            </div>
+
+            <figure class="bug-sample report-shot" role="img" aria-label="Example finding from a test report: Pay now button does nothing after changing the delivery country">
+              <article class="bug-card" aria-hidden="true">
+                <div class="shot-bar"><span class="logo-mark">◈</span> Probamo · Test report · Finding 14 of 23</div>
+                <header class="bug-head">
+                  <span class="bug-id">BUG-014</span>
+                  <span class="bug-sev bug-sev-high">High</span>
+                  <span class="bug-tag">Checkout</span>
+                </header>
+                <h4 class="bug-title">“Pay now” does nothing after changing the delivery country</h4>
+                <dl class="bug-meta">
+                  <div><dt>Environment</dt><dd>iPhone 13 · iOS 18 · Safari · staging build 2.4.1</dd></div>
+                  <div><dt>Impact</dt><dd>Mobile customers who change country at checkout can’t pay. Lost sales.</dd></div>
+                </dl>
+                <div class="bug-block">
+                  <span class="bug-k">Steps to reproduce</span>
+                  <ol>
+                    <li>Add any product to the cart</li>
+                    <li>At checkout, enter a delivery address in Germany</li>
+                    <li>Change the delivery country to Austria</li>
+                    <li>Tap “Pay now”</li>
+                  </ol>
+                </div>
+                <div class="bug-block bug-two">
+                  <div><span class="bug-k">Expected</span><p>Payment form opens with the updated shipping cost.</p></div>
+                  <div><span class="bug-k">Actual</span><p>Button spins for a second, then nothing happens. No error is shown.</p></div>
+                </div>
+                <footer class="bug-foot">
+                  <span class="bug-attach">▶ screen-recording.mp4 · 0:18</span>
+                  <span class="bug-attach">▣ console-log.txt</span>
+                </footer>
+              </article>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="manual-qa" class="section section-alt">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Ongoing or one-off</p>
+            <h2>Manual QA testing</h2>
+            <p>
+              Hands-on testing by experienced testers, the way your customers and staff use your product. For teams without
+              a tester, before a release, or alongside automated tests.
+            </p>
+          </header>
+          <div class="cards cards-three">
+            <article class="card">
+              {ico("refresh")}
+              <h3>Before every release</h3>
+              <p>A regular testing window on your release schedule. Prepared scenarios confirm that new features work and existing ones still do.</p>
+            </article>
+            <article class="card">
+              {ico("compass", "ico-blue")}
+              <h3>Exploratory testing</h3>
+              <p>Unscripted testing that finds what checklists miss: unusual paths, real devices, slow connections, confusing steps.</p>
+            </article>
+            <article class="card">
+              {ico("pulse", "ico-coral")}
+              <h3>Health Check</h3>
+              <p>A fixed-scope review of a website, webshop, mobile app or AI-built app, with a report in 2–3 working days. A good first engagement.</p>
+            </article>
+          </div>
+          <div class="offer-foot">
+            <nav class="small-links" aria-label="Manual QA testing services">
+              <a href="/website-qa">Websites</a>
+              <a href="/webshop-qa">Webshops</a>
+              <a href="/mobile-app-testing">Mobile apps</a>
+              <a href="/regression-testing">Regression testing</a>
+              <a href="/ai-app-testing">AI-built apps</a>
+              <a href="/iot-hardware-testing">IoT &amp; hardware</a>
+              <a href="/manual-qa-testing">All manual QA testing →</a>
+            </nav>
+            <a class="btn btn-ghost" href="/book-a-call?service=Manual%20QA%20testing">Book a call about manual QA</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section">
+        <div class="container">
+          <header class="section-head section-head-tight">
+            <h2>How we work</h2>
+            <p>You stay in control. We make sure you know exactly what you’re getting.</p>
+          </header>
+
+          <div class="cards cards-four">
+            <article class="card">
+              {ico("shield")}
+              <h3>Independent</h3>
+              <p>We don’t build software and have no stake in the outcome. Our job is to report how things really are.</p>
+            </article>
+            <article class="card">
+              {ico("team", "ico-blue")}
+              <h3>Your team, supported</h3>
+              <p>Your team knows the product best. We add the testing time and structure, and work directly with your developers when you want us to.</p>
+            </article>
+            <article class="card">
+              {ico("lock", "ico-sun")}
+              <h3>Confidential</h3>
+              <p>Everything we see and find stays confidential. Where sensitive data is involved, a non-disclosure agreement is signed before testing begins.</p>
+            </article>
+            <article class="card">
+              {ico("scope", "ico-coral")}
+              <h3>Clear scope, fixed price</h3>
+              <p>Every quote states what will be tested, on which devices, and how many testing days are included. Extra work is agreed in writing first.</p>
+            </article>
+          </div>
+
+          <h3 class="proof-subhead how-sub">Ways to work together</h3>
+          <div class="engage-grid">
+            <article class="engage">
+              <h4>Per release</h4>
+              <p>One acceptance test for a milestone, a handover or a go-live. 50% upfront, the rest within 7 days of the report.</p>
+            </article>
+            <article class="engage">
+              <h4>Ongoing testing</h4>
+              <p>An agreed number of testing days each month, scheduled around your releases. Billed monthly, with a 50% deposit on the first month.</p>
+            </article>
+            <article class="engage">
+              <h4>Drop-off audit</h4>
+              <p>A fixed-scope project with one report and a prioritised list of fixes.</p>
+            </article>
+          </div>
+
+          <ol class="steps steps-four">
+            <li class="step">
+              <span class="step-n">1</span>
+              <h3>Intro call</h3>
+              <p>Tell us about the product or project, your concerns and your deadline.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">2</span>
+              <h3>Scope and quote</h3>
+              <p>We define what will be tested and how many testing days it takes, then send a fixed quote.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">3</span>
+              <h3>Testing</h3>
+              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">4</span>
+              <h3>Report and retest</h3>
+              <p>You receive the report and recommendation, and we retest the fixes before sign-off.</p>
+            </li>
+          </ol>
+          <div class="cta-band">
+            <div>
+              <h3>Start with an intro call</h3>
+              <p>Tell us about the product, your concerns and your deadline. No obligation.</p>
+            </div>
+            <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section section-alt">
+        <div class="container about-grid">
+          <div>
+            <p class="eyebrow">Experience</p>
+            <h2 class="about-h">Testing grounded in how businesses really operate</h2>
+            <p>
+              Probamo is an independent software testing company. Our experience comes from operations-heavy industries:
+              warehouses, delivery networks, support desks and automated systems, where software either helps people do
+              their job or gets in the way.
+            </p>
+            <p>
+              So we don’t just check that a button works. We check whether a dispatcher can get through a shift, whether a
+              customer can complete an order on a slow phone, and whether your support team will be flooded on launch day.
+            </p>
+          </div>
+          <div class="about-side">
+            <h3 class="proof-subhead">Industries</h3>
+            <ul class="nest-tags">
+              <li>Micromobility</li>
+              <li>Supply chain</li>
+              <li>Logistics</li>
+              <li>Warehouse management</li>
+              <li>Delivery services</li>
+              <li>Same-day delivery</li>
+              <li>Shop, pick &amp; deliver</li>
+              <li>E-commerce</li>
+              <li>Robotics &amp; automation</li>
+              <li>Operational support</li>
+              <li>Customer support</li>
+            </ul>
+            <h3 class="proof-subhead">Software we test</h3>
+            <ul class="nest-tags">
+              <li>Web apps &amp; portals</li>
+              <li>Mobile apps</li>
+              <li>Internal tools</li>
+              <li>Webshops</li>
+              <li>Software for hardware, robotics &amp; IoT</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-h">
+        <div class="container faq-wrap">
+          <header class="section-head section-head-tight">
+            <h2 id="faq-h">Questions</h2>
+          </header>
+          <div class="faq">
+{faq_html}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-alt contact">
+        <div class="container contact-inner">
+          <div class="contact-intro">
+            <h2>Could this be what your business needs?</h2>
+            <p>
+              Contact us with any questions and we will get back to you. To discuss a specific project, book an intro
+              call instead.
+            </p>
+            <a class="btn btn-ghost" href="/book-a-call">Book a call with us</a>
+            <div class="contact-email">
+              <span class="contact-email-label">Email</span>
+              <span class="contact-email-row">
+                <a href="mailto:testing@probamo.com?subject=Question" class="contact-email-address">testing@probamo.com</a>
+                <button type="button" class="copy-btn" data-copy="testing@probamo.com">Copy</button>
+              </span>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post" novalidate data-enquiry-form
+            data-success="&lt;h3&gt;Thank you, your message has been sent.&lt;/h3&gt;&lt;p&gt;We will get back to you by email.&lt;/p&gt;">
+            <input type="hidden" name="form_type" value="question" />
+            <div class="field">
+              <label for="cf-name">Full name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email address</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required />
+            </div>
+            <div class="field field-wide">
+              <label for="cf-message">Your message</label>
+              <textarea id="cf-message" name="message" rows="5" maxlength="5000" required></textarea>
+            </div>
+            <div class="field-trap" aria-hidden="true">
+              <label for="cf-company-website">Leave this field empty</label>
+              <input id="cf-company-website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="form-footer field-wide">
+              <button type="submit" class="btn btn-primary">Send message</button>
+              <p class="form-note">We only use your details to reply. See the <a href="/privacy">privacy policy</a>.</p>
+            </div>
+            <p class="form-status field-wide" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
+        <nav class="footer-services" aria-label="Services">
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA testing</a>
+          <a href="/regression-testing">Regression testing</a>
+          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/iot-hardware-testing">IoT &amp; hardware</a>
+          <a href="/website-qa">Website QA</a>
+          <a href="/webshop-qa">Webshop QA</a>
+          <a href="/ai-app-testing">AI-built apps</a>
+        </nav>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="/privacy">Privacy policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/terms">Terms &amp; conditions</a>
+        </nav>
+        <p class="footer-entity">
+          PROBAMO, obrt za usluge i trgovinu, vl. Sara Lubura · Biševska Ulica 2, Veliko Polje, Zagreb, Croatia ·
+          Registered in the Croatian Register of Crafts (Obrtni registar), MBO 99405709 ·
+          <a href="mailto:testing@probamo.com">testing@probamo.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+'''
+
+open(OUT, "w", encoding="utf-8").write(page)
+print("written", len(page))

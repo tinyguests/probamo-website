@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Manual mobile app testing by real people: onboarding, core flows, payments and real-world interruptions, reported with steps and screen recordings." />
+    <meta name="description" content="Manual mobile app testing on real iOS and Android devices: onboarding, core flows, permissions, notifications and interruptions." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://probamo.com/mobile-app-testing" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Probamo" />
-    <meta property="og:title" content="Mobile App Testing Service | Probamo" />
-    <meta property="og:description" content="Manual mobile app testing by real people: onboarding, core flows, payments and real-world interruptions, reported with steps and screen recordings." />
+    <meta property="og:title" content="Mobile App Testing on Real iOS and Android Devices | Probamo" />
+    <meta property="og:description" content="Manual mobile app testing on real iOS and Android devices: onboarding, core flows, permissions, notifications and interruptions." />
     <meta property="og:url" content="https://probamo.com/mobile-app-testing" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content="https://probamo.com/og-image.png" />
@@ -17,11 +17,12 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://probamo.com/og-image.png" />
-    <title>Mobile App Testing Service | Probamo</title>
+    <title>Mobile App Testing on Real iOS and Android Devices | Probamo</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="application/ld+json">
       {
@@ -31,8 +32,8 @@
             "@type": "Service",
             "@id": "https://probamo.com/mobile-app-testing#service",
             "name": "Mobile app testing",
-            "serviceType": "Mobile app testing",
-            "description": "Manual mobile app testing by real people: onboarding, core flows, payments and real-world interruptions, reported with steps and screen recordings.",
+            "serviceType": "Mobile application testing",
+            "description": "Manual mobile app testing on real iOS and Android devices: onboarding, core flows, permissions, notifications and interruptions.",
             "url": "https://probamo.com/mobile-app-testing",
             "provider": {
               "@id": "https://probamo.com/#organization"
@@ -51,7 +52,13 @@
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Mobile apps",
+                "name": "Manual QA testing",
+                "item": "https://probamo.com/manual-qa-testing"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Mobile app testing",
                 "item": "https://probamo.com/mobile-app-testing"
               }
             ]
@@ -61,34 +68,34 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "How do I share the app with you?",
+                "name": "Do you test on real devices?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Through a pre-release channel such as TestFlight or an internal testing track, or as a build file. We can also test the store version."
+                  "text": "Yes. Testing on real phones finds problems that simulators miss, such as performance, gestures and interruptions."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Which devices do you test on?",
+                "name": "How do you get the app?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We agree the devices and operating system versions with you when we scope the project, based on what your users have."
+                  "text": "Through the usual test distribution channels for iOS and Android, or a build you send us."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Can you test before release?",
+                "name": "Can you test an app before it is published?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. Testing a release candidate before store submission is one of the most useful times to do it."
+                  "text": "Yes. Testing before store submission is the best time to find blockers."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take?",
+                "name": "What if users install the app and then stop using it?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Reports typically arrive within 2–3 working days, depending on scope."
+                  "text": "A drop-off audit focuses on why users leave after installing, and what to fix first."
                 }
               }
             ]
@@ -107,28 +114,22 @@
           Probamo
         </a>
         <nav class="nav" aria-label="Main">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/book-a-call" class="nav-cta">Book a call</a>
         </nav>
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Open menu"
-        >
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="menu-toggle-text">Menu</span>
         </button>
       </div>
       <nav id="mobile-nav" class="mobile-nav" hidden>
         <div class="mobile-nav-inner">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/#experience">Experience</a>
           <a href="/#contact">Contact</a>
@@ -140,15 +141,13 @@
     <main id="main">
       <section class="hero page-hero">
         <div class="container">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Mobile apps</span>
-          </nav>
-          <p class="eyebrow">Mobile app testing</p>
-          <h1>Mobile app testing by people who use apps the way your customers do</h1>
-          <p class="lead">We install your app, go through onboarding and the flows that matter, and try what real users do — rotating the phone, losing connection, switching apps — then report what breaks.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/manual-qa-testing">Manual QA testing</a> <span aria-hidden="true">/</span> <span aria-current="page">Mobile app testing</span></nav>
+          <p class="eyebrow">Manual QA testing</p>
+          <h1>Mobile app testing on real devices</h1>
+          <p class="lead">We test your iOS and Android app the way people use their phones: on real devices, with interruptions, weak connections and the permissions users actually grant.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
-            <a class="btn btn-ghost" href="/#reports">See an example finding</a>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
+            <a class="btn btn-ghost" href="/#reports">See how we report</a>
           </div>
         </div>
       </section>
@@ -158,107 +157,104 @@
           <header class="section-head section-head-tight">
             <h2 id="tests-h">What we test</h2>
           </header>
-          <div class="cards cards-why">
+          <div class="cards cards-three">
             <article class="card">
-              <h3>Onboarding and sign-up</h3>
-              <p>First launch, permissions, account creation and login.</p>
+              <h3>Onboarding</h3>
+              <p>First launch, sign-up, permissions and the first minutes of use.</p>
             </article>
             <article class="card">
               <h3>Core flows</h3>
-              <p>The tasks your users open the app for, from start to finish.</p>
-            </article>
-            <article class="card">
-              <h3>Payments and subscriptions</h3>
-              <p>Purchases and upgrades in test mode, including what happens when they fail.</p>
+              <p>The features your users rely on, end to end.</p>
             </article>
             <article class="card">
               <h3>Interruptions</h3>
-              <p>Calls, notifications, backgrounding the app and losing connection mid-task.</p>
+              <p>Calls, notifications, backgrounding, rotation and lost connections.</p>
             </article>
             <article class="card">
-              <h3>Screens and layout</h3>
-              <p>Different screen sizes, orientation and text size settings.</p>
+              <h3>Devices and versions</h3>
+              <p>Different screen sizes and operating system versions.</p>
             </article>
             <article class="card">
-              <h3>Before release</h3>
-              <p>A regression pass on a release candidate before you submit to the store.</p>
+              <h3>Notifications</h3>
+              <p>Push and in-app messages: timing, content and where they lead.</p>
+            </article>
+            <article class="card">
+              <h3>Purchases and subscriptions</h3>
+              <p>In-app purchases, trials and upgrade screens in test mode.</p>
             </article>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="how-h">
         <div class="container">
           <header class="section-head section-head-tight">
-            <h2 id="how-h">How it works</h2>
+            <h2 id="how-h">How we work</h2>
           </header>
-          <ol class="steps">
+          <ol class="steps steps-four">
             <li class="step">
               <span class="step-n">1</span>
-              <h3>Share access</h3>
-              <p>Send the URL, build or login details and tell us which flows matter most. We confirm scope and price before we start.</p>
+              <h3>Intro call</h3>
+              <p>Tell us about the product or project, your concerns and your deadline.</p>
             </li>
             <li class="step">
               <span class="step-n">2</span>
-              <h3>We test as real users</h3>
-              <p>A person works through your product on real devices, looking for anything that breaks, confuses or blocks.</p>
+              <h3>Scope and quote</h3>
+              <p>We define what will be tested and how many testing days it takes, then send a fixed quote.</p>
             </li>
             <li class="step">
               <span class="step-n">3</span>
-              <h3>You get a report</h3>
-              <p>Written findings with steps to reproduce, severity, impact and screenshots or video, typically within 2–3 working days.</p>
+              <h3>Testing</h3>
+              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">4</span>
+              <h3>Report and retest</h3>
+              <p>You receive the report and recommendation, and we retest fixes before sign-off.</p>
             </li>
           </ol>
-        </div>
-      </section>
-
-      <section class="section section-alt" aria-labelledby="price-h">
-        <div class="container service-pricing">
-          <div>
-            <h2 id="price-h">Scope and price</h2>
-            <p>Every project is quoted individually. After a short intro call, you receive a fixed quote stating what will be tested, on which devices, and how many testing days are included.</p>
-            <p class="price-note-line">One-off projects: 50% upfront, the rest within 7 days of the report. No VAT is added.</p>
-          </div>
-          <div class="service-cta">
-            <a class="btn btn-primary btn-block" href="/book-a-call">Book a call with us</a>
-            <a class="text-link" href="/#how">How we work →</a>
+          <div class="cta-band">
+            <div>
+              <h3>Discuss your project with us</h3>
+              <p>Every project is quoted individually, with the scope and testing days stated upfront.</p>
+            </div>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
           </div>
         </div>
       </section>
-
-      <section class="section" aria-labelledby="faq-h">
-        <div class="container faq-wrap">
-          <header class="section-head section-head-tight">
-            <h2 id="faq-h">Questions</h2>
-          </header>
-          <div class="faq">
+      <section class="section section-alt" aria-labelledby="faq-h">
+        <div class="container">
+          <div class="faq-wrap">
+            <header class="section-head section-head-tight">
+              <h2 id="faq-h">Questions</h2>
+            </header>
+            <div class="faq">
             <details class="faq-item">
-              <summary>How do I share the app with you?</summary>
-              <p>Through a pre-release channel such as TestFlight or an internal testing track, or as a build file. We can also test the store version.</p>
+              <summary>Do you test on real devices?</summary>
+              <p>Yes. Testing on real phones finds problems that simulators miss, such as performance, gestures and interruptions.</p>
             </details>
             <details class="faq-item">
-              <summary>Which devices do you test on?</summary>
-              <p>We agree the devices and operating system versions with you when we scope the project, based on what your users have.</p>
+              <summary>How do you get the app?</summary>
+              <p>Through the usual test distribution channels for iOS and Android, or a build you send us.</p>
             </details>
             <details class="faq-item">
-              <summary>Can you test before release?</summary>
-              <p>Yes. Testing a release candidate before store submission is one of the most useful times to do it.</p>
+              <summary>Can you test an app before it is published?</summary>
+              <p>Yes. Testing before store submission is the best time to find blockers.</p>
             </details>
             <details class="faq-item">
-              <summary>How long does it take?</summary>
-              <p>Reports typically arrive within 2–3 working days, depending on scope.</p>
+              <summary>What if users install the app and then stop using it?</summary>
+              <p>A drop-off audit focuses on why users leave after installing, and what to fix first.</p>
             </details>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="section section-alt" aria-labelledby="related-h">
+      <section class="section" aria-labelledby="related-h">
         <div class="container">
           <h2 id="related-h" class="related-h">Related services</h2>
           <ul class="related-links">
-            <li><a href="/regression-testing">Regression testing →</a></li>
-            <li><a href="/ai-app-testing">Testing AI-built products →</a></li>
-            <li><a href="/iot-hardware-testing">IoT, robotics and hardware software →</a></li>
+            <li><a href="/drop-off-audit">Drop-off audit</a></li>
+            <li><a href="/acceptance-testing">Acceptance testing</a></li>
+            <li><a href="/manual-qa-testing">Manual QA testing</a></li>
           </ul>
         </div>
       </section>
@@ -266,18 +262,22 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent manual QA</p>
-        <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
         <nav class="footer-services" aria-label="Services">
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/website-qa">Website QA</a>
           <a href="/webshop-qa">Webshop QA</a>
-          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/mobile-app-testing">Mobile app testing</a>
           <a href="/regression-testing">Regression testing</a>
           <a href="/ai-app-testing">AI-built apps</a>
-          <a href="/digital-products-qa">Digital products</a>
           <a href="/iot-hardware-testing">IoT &amp; hardware</a>
         </nav>
         <nav class="footer-legal" aria-label="Legal">
+          <a href="/book-a-call">Book a call</a>
+          <span aria-hidden="true">·</span>
           <a href="/privacy">Privacy policy</a>
           <span aria-hidden="true">·</span>
           <a href="/terms">Terms &amp; conditions</a>

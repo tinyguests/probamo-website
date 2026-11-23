@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Human QA for products built with AI tools and no-code builders: edge cases, broken flows, UX gaps and trust issues found before launch." />
+    <meta name="description" content="Independent testing for apps built with AI coding tools: core flows, edge cases, data handling and security basics checked before real users arrive." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://probamo.com/ai-app-testing" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Probamo" />
-    <meta property="og:title" content="Testing for AI-Built Apps &amp; Websites | Probamo" />
-    <meta property="og:description" content="Human QA for products built with AI tools and no-code builders: edge cases, broken flows, UX gaps and trust issues found before launch." />
+    <meta property="og:title" content="Testing AI-built Apps — Independent QA Before Launch | Probamo" />
+    <meta property="og:description" content="Independent testing for apps built with AI coding tools: core flows, edge cases, data handling and security basics checked before real users arrive." />
     <meta property="og:url" content="https://probamo.com/ai-app-testing" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content="https://probamo.com/og-image.png" />
@@ -17,11 +17,12 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://probamo.com/og-image.png" />
-    <title>Testing for AI-Built Apps &amp; Websites | Probamo</title>
+    <title>Testing AI-built Apps — Independent QA Before Launch | Probamo</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="application/ld+json">
       {
@@ -30,9 +31,9 @@
           {
             "@type": "Service",
             "@id": "https://probamo.com/ai-app-testing#service",
-            "name": "Testing AI-built products",
-            "serviceType": "QA testing for AI-generated software",
-            "description": "Human QA for products built with AI tools and no-code builders: edge cases, broken flows, UX gaps and trust issues found before launch.",
+            "name": "AI-built apps",
+            "serviceType": "Software testing",
+            "description": "Independent testing for apps built with AI coding tools: core flows, edge cases, data handling and security basics checked before real users arrive.",
             "url": "https://probamo.com/ai-app-testing",
             "provider": {
               "@id": "https://probamo.com/#organization"
@@ -51,6 +52,12 @@
               {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "Manual QA testing",
+                "item": "https://probamo.com/manual-qa-testing"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "AI-built apps",
                 "item": "https://probamo.com/ai-app-testing"
               }
@@ -61,34 +68,34 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Do you test apps made with Lovable, Bolt, v0, Cursor or Bubble?",
+                "name": "Why do AI-built apps need testing?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. We test the product, not the code, so it doesn't matter which tool built it."
+                  "text": "Generated code often handles the expected path well and the unexpected ones badly. Manual testing finds those gaps before users do."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do you fix the bugs?",
+                "name": "Do you review the code?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. We're independent testers. You get a clear report that you, your developer or your AI tool can work from."
+                  "text": "We test the application from the outside, as users do. Code review and penetration testing need a specialist."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Is this a security audit?",
+                "name": "Which tools do you test apps from?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. We flag obvious access problems we come across, but a full security test needs a specialist."
+                  "text": "Any. We test the running application, regardless of how it was built."
                 }
               },
               {
                 "@type": "Question",
-                "name": "When should I test?",
+                "name": "What is the best starting point?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Before you launch or start paid marketing, and after any big change generated in one go."
+                  "text": "A Health Check: a fixed-scope review with a report in 2–3 working days."
                 }
               }
             ]
@@ -107,28 +114,22 @@
           Probamo
         </a>
         <nav class="nav" aria-label="Main">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/book-a-call" class="nav-cta">Book a call</a>
         </nav>
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Open menu"
-        >
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="menu-toggle-text">Menu</span>
         </button>
       </div>
       <nav id="mobile-nav" class="mobile-nav" hidden>
         <div class="mobile-nav-inner">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/#experience">Experience</a>
           <a href="/#contact">Contact</a>
@@ -140,15 +141,13 @@
     <main id="main">
       <section class="hero page-hero">
         <div class="container">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">AI-built apps</span>
-          </nav>
-          <p class="eyebrow">Testing AI-built products</p>
-          <h1>A human check for apps and websites built with AI</h1>
-          <p class="lead">AI tools let you ship in days. They also produce flows that work on the happy path and fail everywhere else. We test your product like a real user and show you what to fix before customers find it.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/manual-qa-testing">Manual QA testing</a> <span aria-hidden="true">/</span> <span aria-current="page">AI-built apps</span></nav>
+          <p class="eyebrow">Manual QA testing</p>
+          <h1>Testing for apps built with AI tools</h1>
+          <p class="lead">AI tools make building fast. They also produce software that works in the demo and fails with real users. We test what was generated before your customers do.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
-            <a class="btn btn-ghost" href="/#reports">See an example finding</a>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
+            <a class="btn btn-ghost" href="/#reports">See how we report</a>
           </div>
         </div>
       </section>
@@ -158,107 +157,104 @@
           <header class="section-head section-head-tight">
             <h2 id="tests-h">What we test</h2>
           </header>
-          <div class="cards cards-why">
+          <div class="cards cards-three">
+            <article class="card">
+              <h3>Core flows</h3>
+              <p>Sign-up, login, the main features and payments, end to end.</p>
+            </article>
             <article class="card">
               <h3>Edge cases</h3>
-              <p>Empty fields, very long inputs, double clicks, the back button and refreshing mid-flow.</p>
+              <p>Empty fields, long inputs, double clicks, going back, and other things real users do.</p>
             </article>
             <article class="card">
-              <h3>Accounts and logins</h3>
-              <p>Sign-up, email confirmation, password reset and sessions.</p>
+              <h3>Data handling</h3>
+              <p>Whether data is saved, shown and deleted correctly, and only to the right people.</p>
             </article>
             <article class="card">
-              <h3>Payments</h3>
-              <p>Checkout and subscription flows in test mode, including failures.</p>
+              <h3>Error handling</h3>
+              <p>What users see when something goes wrong.</p>
             </article>
             <article class="card">
-              <h3>Obvious access problems</h3>
-              <p>Pages that open without logging in, or show data they shouldn't.</p>
+              <h3>Devices and browsers</h3>
+              <p>Layout and behaviour across phones, tablets and desktops.</p>
             </article>
             <article class="card">
-              <h3>UX gaps</h3>
-              <p>Dead ends, missing error messages and screens with no clear next step.</p>
-            </article>
-            <article class="card">
-              <h3>Trust details</h3>
-              <p>Placeholder text, broken links, missing legal pages and emails that land in spam.</p>
+              <h3>Security basics</h3>
+              <p>Visible issues such as exposed data or pages accessible without login.</p>
             </article>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="how-h">
         <div class="container">
           <header class="section-head section-head-tight">
-            <h2 id="how-h">How it works</h2>
+            <h2 id="how-h">How we work</h2>
           </header>
-          <ol class="steps">
+          <ol class="steps steps-four">
             <li class="step">
               <span class="step-n">1</span>
-              <h3>Share access</h3>
-              <p>Send the URL, build or login details and tell us which flows matter most. We confirm scope and price before we start.</p>
+              <h3>Intro call</h3>
+              <p>Tell us about the product or project, your concerns and your deadline.</p>
             </li>
             <li class="step">
               <span class="step-n">2</span>
-              <h3>We test as real users</h3>
-              <p>A person works through your product on real devices, looking for anything that breaks, confuses or blocks.</p>
+              <h3>Scope and quote</h3>
+              <p>We define what will be tested and how many testing days it takes, then send a fixed quote.</p>
             </li>
             <li class="step">
               <span class="step-n">3</span>
-              <h3>You get a report</h3>
-              <p>Written findings with steps to reproduce, severity, impact and screenshots or video, typically within 2–3 working days.</p>
+              <h3>Testing</h3>
+              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">4</span>
+              <h3>Report and retest</h3>
+              <p>You receive the report and recommendation, and we retest fixes before sign-off.</p>
             </li>
           </ol>
-        </div>
-      </section>
-
-      <section class="section section-alt" aria-labelledby="price-h">
-        <div class="container service-pricing">
-          <div>
-            <h2 id="price-h">Scope and price</h2>
-            <p>Every project is quoted individually. After a short intro call, you receive a fixed quote stating what will be tested, on which devices, and how many testing days are included.</p>
-            <p class="price-note-line">One-off projects: 50% upfront, the rest within 7 days of the report. No VAT is added.</p>
-          </div>
-          <div class="service-cta">
-            <a class="btn btn-primary btn-block" href="/book-a-call">Book a call with us</a>
-            <a class="text-link" href="/#how">How we work →</a>
+          <div class="cta-band">
+            <div>
+              <h3>Discuss your project with us</h3>
+              <p>Every project is quoted individually, with the scope and testing days stated upfront.</p>
+            </div>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
           </div>
         </div>
       </section>
-
-      <section class="section" aria-labelledby="faq-h">
-        <div class="container faq-wrap">
-          <header class="section-head section-head-tight">
-            <h2 id="faq-h">Questions</h2>
-          </header>
-          <div class="faq">
+      <section class="section section-alt" aria-labelledby="faq-h">
+        <div class="container">
+          <div class="faq-wrap">
+            <header class="section-head section-head-tight">
+              <h2 id="faq-h">Questions</h2>
+            </header>
+            <div class="faq">
             <details class="faq-item">
-              <summary>Do you test apps made with Lovable, Bolt, v0, Cursor or Bubble?</summary>
-              <p>Yes. We test the product, not the code, so it doesn't matter which tool built it.</p>
+              <summary>Why do AI-built apps need testing?</summary>
+              <p>Generated code often handles the expected path well and the unexpected ones badly. Manual testing finds those gaps before users do.</p>
             </details>
             <details class="faq-item">
-              <summary>Do you fix the bugs?</summary>
-              <p>No. We're independent testers. You get a clear report that you, your developer or your AI tool can work from.</p>
+              <summary>Do you review the code?</summary>
+              <p>We test the application from the outside, as users do. Code review and penetration testing need a specialist.</p>
             </details>
             <details class="faq-item">
-              <summary>Is this a security audit?</summary>
-              <p>No. We flag obvious access problems we come across, but a full security test needs a specialist.</p>
+              <summary>Which tools do you test apps from?</summary>
+              <p>Any. We test the running application, regardless of how it was built.</p>
             </details>
             <details class="faq-item">
-              <summary>When should I test?</summary>
-              <p>Before you launch or start paid marketing, and after any big change generated in one go.</p>
+              <summary>What is the best starting point?</summary>
+              <p>A Health Check: a fixed-scope review with a report in 2–3 working days.</p>
             </details>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="section section-alt" aria-labelledby="related-h">
+      <section class="section" aria-labelledby="related-h">
         <div class="container">
           <h2 id="related-h" class="related-h">Related services</h2>
           <ul class="related-links">
-            <li><a href="/website-qa">Website QA testing →</a></li>
-            <li><a href="/mobile-app-testing">Mobile app testing →</a></li>
-            <li><a href="/webshop-qa">Webshop and e-commerce testing →</a></li>
+            <li><a href="/manual-qa-testing">Manual QA testing</a></li>
+            <li><a href="/acceptance-testing">Acceptance testing</a></li>
+            <li><a href="/website-qa">Website QA</a></li>
           </ul>
         </div>
       </section>
@@ -266,18 +262,22 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent manual QA</p>
-        <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
         <nav class="footer-services" aria-label="Services">
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/website-qa">Website QA</a>
           <a href="/webshop-qa">Webshop QA</a>
-          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/mobile-app-testing">Mobile app testing</a>
           <a href="/regression-testing">Regression testing</a>
           <a href="/ai-app-testing">AI-built apps</a>
-          <a href="/digital-products-qa">Digital products</a>
           <a href="/iot-hardware-testing">IoT &amp; hardware</a>
         </nav>
         <nav class="footer-legal" aria-label="Legal">
+          <a href="/book-a-call">Book a call</a>
+          <span aria-hidden="true">·</span>
           <a href="/privacy">Privacy policy</a>
           <span aria-hidden="true">·</span>
           <a href="/terms">Terms &amp; conditions</a>

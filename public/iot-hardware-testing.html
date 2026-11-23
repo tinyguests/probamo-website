@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Manual testing for software that works with hardware: device setup, companion apps, IoT dashboards and robotics interfaces, tested from the user's side." />
+    <meta name="description" content="Testing software for connected devices, robotics and hardware: setup, companion apps, dashboards and real-world use, remote or on site by agreement." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://probamo.com/iot-hardware-testing" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Probamo" />
-    <meta property="og:title" content="IoT &amp; Hardware Software Testing | Probamo" />
-    <meta property="og:description" content="Manual testing for software that works with hardware: device setup, companion apps, IoT dashboards and robotics interfaces, tested from the user's side." />
+    <meta property="og:title" content="IoT, Robotics and Hardware Software Testing | Probamo" />
+    <meta property="og:description" content="Testing software for connected devices, robotics and hardware: setup, companion apps, dashboards and real-world use, remote or on site by agreement." />
     <meta property="og:url" content="https://probamo.com/iot-hardware-testing" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content="https://probamo.com/og-image.png" />
@@ -17,11 +17,12 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://probamo.com/og-image.png" />
-    <title>IoT &amp; Hardware Software Testing | Probamo</title>
+    <title>IoT, Robotics and Hardware Software Testing | Probamo</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="application/ld+json">
       {
@@ -30,9 +31,9 @@
           {
             "@type": "Service",
             "@id": "https://probamo.com/iot-hardware-testing#service",
-            "name": "IoT, robotics and hardware software",
-            "serviceType": "IoT and hardware software testing",
-            "description": "Manual testing for software that works with hardware: device setup, companion apps, IoT dashboards and robotics interfaces, tested from the user's side.",
+            "name": "IoT & hardware",
+            "serviceType": "IoT software testing",
+            "description": "Testing software for connected devices, robotics and hardware: setup, companion apps, dashboards and real-world use, remote or on site by agreement.",
             "url": "https://probamo.com/iot-hardware-testing",
             "provider": {
               "@id": "https://probamo.com/#organization"
@@ -51,6 +52,12 @@
               {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "Manual QA testing",
+                "item": "https://probamo.com/manual-qa-testing"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "IoT & hardware",
                 "item": "https://probamo.com/iot-hardware-testing"
               }
@@ -64,31 +71,31 @@
                 "name": "Do you need the hardware?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Usually yes. We agree whether you send a test unit, give remote access or provide a simulator."
+                  "text": "Usually yes. We agree whether you send a test unit, give remote access, provide a simulator or host us on site."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do you test firmware code?",
+                "name": "Can you test on site?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We test from the user's side: setup, control, apps and dashboards. Low-level firmware and electrical testing need a specialist lab."
+                  "text": "Yes. On-site visits and testing are possible anywhere by prior agreement."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What have you tested before?",
+                "name": "Do you test firmware?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Software for hardware, robotics and IoT products, alongside web and mobile apps."
+                  "text": "We test from the user’s and operator’s side. Low-level firmware and electrical testing need a specialist lab."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take?",
+                "name": "What experience do you have?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "It depends on the setup. We agree the timeline when we scope the project."
+                  "text": "Robotics and automation, micromobility, warehouse and delivery operations, alongside web and mobile apps."
                 }
               }
             ]
@@ -107,28 +114,22 @@
           Probamo
         </a>
         <nav class="nav" aria-label="Main">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/book-a-call" class="nav-cta">Book a call</a>
         </nav>
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Open menu"
-        >
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="menu-toggle-text">Menu</span>
         </button>
       </div>
       <nav id="mobile-nav" class="mobile-nav" hidden>
         <div class="mobile-nav-inner">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/#experience">Experience</a>
           <a href="/#contact">Contact</a>
@@ -140,15 +141,13 @@
     <main id="main">
       <section class="hero page-hero">
         <div class="container">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">IoT &amp; hardware</span>
-          </nav>
-          <p class="eyebrow">IoT, robotics and hardware software</p>
-          <h1>Testing for IoT, robotics and hardware-connected software</h1>
-          <p class="lead">When software controls a physical device, bugs show up as devices that won't pair, settings that don't stick and dashboards that show the wrong state. We test from the user's side: setup, control and everything in between.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/manual-qa-testing">Manual QA testing</a> <span aria-hidden="true">/</span> <span aria-current="page">IoT &amp; hardware</span></nav>
+          <p class="eyebrow">Manual QA testing</p>
+          <h1>Testing software for IoT, robotics and hardware</h1>
+          <p class="lead">When software controls physical devices, failures are expensive and visible. We test setup, control apps and dashboards the way operators and customers use them, remotely or on site by agreement.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
-            <a class="btn btn-ghost" href="/#reports">See an example finding</a>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
+            <a class="btn btn-ghost" href="/#reports">See how we report</a>
           </div>
         </div>
       </section>
@@ -158,107 +157,104 @@
           <header class="section-head section-head-tight">
             <h2 id="tests-h">What we test</h2>
           </header>
-          <div class="cards cards-why">
+          <div class="cards cards-three">
             <article class="card">
               <h3>Setup and pairing</h3>
-              <p>First-time setup, pairing, re-pairing and factory reset flows.</p>
+              <p>Unboxing to first use: pairing, onboarding and configuration.</p>
             </article>
             <article class="card">
               <h3>Companion apps</h3>
-              <p>Mobile and desktop apps that control or monitor the device.</p>
+              <p>Mobile and web apps that control or monitor the device.</p>
             </article>
             <article class="card">
-              <h3>Dashboards and portals</h3>
-              <p>Web interfaces for fleets, readings, alerts and settings.</p>
-            </article>
-            <article class="card">
-              <h3>State and sync</h3>
-              <p>Whether the app shows what the device is actually doing.</p>
+              <h3>Dashboards</h3>
+              <p>Operator and admin dashboards, alerts and reports.</p>
             </article>
             <article class="card">
               <h3>Connectivity</h3>
-              <p>Weak signal, dropped connections and recovering afterwards.</p>
+              <p>Lost connections, reconnection, offline mode and syncing.</p>
+            </article>
+            <article class="card">
+              <h3>Operational scenarios</h3>
+              <p>Shift changes, many devices at once, and real-world conditions.</p>
             </article>
             <article class="card">
               <h3>Updates</h3>
-              <p>App and firmware update flows as the user experiences them.</p>
+              <p>Firmware and app updates from the user’s side.</p>
             </article>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="how-h">
         <div class="container">
           <header class="section-head section-head-tight">
-            <h2 id="how-h">How it works</h2>
+            <h2 id="how-h">How we work</h2>
           </header>
-          <ol class="steps">
+          <ol class="steps steps-four">
             <li class="step">
               <span class="step-n">1</span>
-              <h3>Share access</h3>
-              <p>Send the URL, build or login details and tell us which flows matter most. We confirm scope and price before we start.</p>
+              <h3>Intro call</h3>
+              <p>Tell us about the product or project, your concerns and your deadline.</p>
             </li>
             <li class="step">
               <span class="step-n">2</span>
-              <h3>We test as real users</h3>
-              <p>A person works through your product on real devices, looking for anything that breaks, confuses or blocks.</p>
+              <h3>Scope and quote</h3>
+              <p>We define what will be tested and how many testing days it takes, then send a fixed quote.</p>
             </li>
             <li class="step">
               <span class="step-n">3</span>
-              <h3>You get a report</h3>
-              <p>Written findings with steps to reproduce, severity, impact and screenshots or video, typically within 2–3 working days.</p>
+              <h3>Testing</h3>
+              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">4</span>
+              <h3>Report and retest</h3>
+              <p>You receive the report and recommendation, and we retest fixes before sign-off.</p>
             </li>
           </ol>
-        </div>
-      </section>
-
-      <section class="section section-alt" aria-labelledby="price-h">
-        <div class="container service-pricing">
-          <div>
-            <h2 id="price-h">Scope and price</h2>
-            <p>Every project is quoted individually. After a short intro call, you receive a fixed quote stating what will be tested, on which devices, and how many testing days are included.</p>
-            <p class="price-note-line">One-off projects: 50% upfront, the rest within 7 days of the report. No VAT is added.</p>
-          </div>
-          <div class="service-cta">
-            <a class="btn btn-primary btn-block" href="/book-a-call">Book a call with us</a>
-            <a class="text-link" href="/#how">How we work →</a>
+          <div class="cta-band">
+            <div>
+              <h3>Discuss your project with us</h3>
+              <p>Every project is quoted individually, with the scope and testing days stated upfront.</p>
+            </div>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
           </div>
         </div>
       </section>
-
-      <section class="section" aria-labelledby="faq-h">
-        <div class="container faq-wrap">
-          <header class="section-head section-head-tight">
-            <h2 id="faq-h">Questions</h2>
-          </header>
-          <div class="faq">
+      <section class="section section-alt" aria-labelledby="faq-h">
+        <div class="container">
+          <div class="faq-wrap">
+            <header class="section-head section-head-tight">
+              <h2 id="faq-h">Questions</h2>
+            </header>
+            <div class="faq">
             <details class="faq-item">
               <summary>Do you need the hardware?</summary>
-              <p>Usually yes. We agree whether you send a test unit, give remote access or provide a simulator.</p>
+              <p>Usually yes. We agree whether you send a test unit, give remote access, provide a simulator or host us on site.</p>
             </details>
             <details class="faq-item">
-              <summary>Do you test firmware code?</summary>
-              <p>We test from the user's side: setup, control, apps and dashboards. Low-level firmware and electrical testing need a specialist lab.</p>
+              <summary>Can you test on site?</summary>
+              <p>Yes. On-site visits and testing are possible anywhere by prior agreement.</p>
             </details>
             <details class="faq-item">
-              <summary>What have you tested before?</summary>
-              <p>Software for hardware, robotics and IoT products, alongside web and mobile apps.</p>
+              <summary>Do you test firmware?</summary>
+              <p>We test from the user’s and operator’s side. Low-level firmware and electrical testing need a specialist lab.</p>
             </details>
             <details class="faq-item">
-              <summary>How long does it take?</summary>
-              <p>It depends on the setup. We agree the timeline when we scope the project.</p>
+              <summary>What experience do you have?</summary>
+              <p>Robotics and automation, micromobility, warehouse and delivery operations, alongside web and mobile apps.</p>
             </details>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="section section-alt" aria-labelledby="related-h">
+      <section class="section" aria-labelledby="related-h">
         <div class="container">
           <h2 id="related-h" class="related-h">Related services</h2>
           <ul class="related-links">
-            <li><a href="/mobile-app-testing">Mobile app testing →</a></li>
-            <li><a href="/regression-testing">Regression testing →</a></li>
-            <li><a href="/website-qa">Website QA testing →</a></li>
+            <li><a href="/acceptance-testing">Acceptance testing</a></li>
+            <li><a href="/mobile-app-testing">Mobile app testing</a></li>
+            <li><a href="/manual-qa-testing">Manual QA testing</a></li>
           </ul>
         </div>
       </section>
@@ -266,18 +262,22 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent manual QA</p>
-        <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
         <nav class="footer-services" aria-label="Services">
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/website-qa">Website QA</a>
           <a href="/webshop-qa">Webshop QA</a>
-          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/mobile-app-testing">Mobile app testing</a>
           <a href="/regression-testing">Regression testing</a>
           <a href="/ai-app-testing">AI-built apps</a>
-          <a href="/digital-products-qa">Digital products</a>
           <a href="/iot-hardware-testing">IoT &amp; hardware</a>
         </nav>
         <nav class="footer-legal" aria-label="Legal">
+          <a href="/book-a-call">Book a call</a>
+          <span aria-hidden="true">·</span>
           <a href="/privacy">Privacy policy</a>
           <span aria-hidden="true">·</span>
           <a href="/terms">Terms &amp; conditions</a>

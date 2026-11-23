@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Manual e-commerce testing for webshops: product pages, cart, checkout and order emails tested end-to-end with a test order." />
+    <meta name="description" content="E-commerce testing for webshops: product pages, cart, checkout, payments and order emails tested end to end with test orders." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://probamo.com/webshop-qa" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Probamo" />
-    <meta property="og:title" content="Webshop &amp; E-commerce QA Testing | Probamo" />
-    <meta property="og:description" content="Manual e-commerce testing for webshops: product pages, cart, checkout and order emails tested end-to-end with a test order." />
+    <meta property="og:title" content="Webshop &amp; E-commerce Testing — Checkout Tested End to End | Probamo" />
+    <meta property="og:description" content="E-commerce testing for webshops: product pages, cart, checkout, payments and order emails tested end to end with test orders." />
     <meta property="og:url" content="https://probamo.com/webshop-qa" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content="https://probamo.com/og-image.png" />
@@ -17,11 +17,12 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://probamo.com/og-image.png" />
-    <title>Webshop &amp; E-commerce QA Testing | Probamo</title>
+    <title>Webshop &amp; E-commerce Testing — Checkout Tested End to End | Probamo</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="application/ld+json">
       {
@@ -30,9 +31,9 @@
           {
             "@type": "Service",
             "@id": "https://probamo.com/webshop-qa#service",
-            "name": "Webshop and e-commerce testing",
-            "serviceType": "E-commerce QA testing",
-            "description": "Manual e-commerce testing for webshops: product pages, cart, checkout and order emails tested end-to-end with a test order.",
+            "name": "Webshop QA",
+            "serviceType": "E-commerce testing",
+            "description": "E-commerce testing for webshops: product pages, cart, checkout, payments and order emails tested end to end with test orders.",
             "url": "https://probamo.com/webshop-qa",
             "provider": {
               "@id": "https://probamo.com/#organization"
@@ -51,6 +52,12 @@
               {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "Manual QA testing",
+                "item": "https://probamo.com/manual-qa-testing"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "Webshop QA",
                 "item": "https://probamo.com/webshop-qa"
               }
@@ -64,7 +71,7 @@
                 "name": "Will you place real orders?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We test with a test product and safe test payment details, ideally on a staging copy of your shop. If you only have a live shop, we agree the approach with you first."
+                  "text": "We use test modes and test payment methods wherever possible. If a real order is needed, we agree it with you first."
                 }
               },
               {
@@ -72,23 +79,23 @@
                 "name": "Which shop platforms do you test?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Any webshop we can get access to, whether it runs on a platform such as Shopify or WooCommerce or is custom-built. We test what your customers see, not the code."
+                  "text": "Any platform: we test what customers see and do, whether the shop runs on a hosted platform or custom software."
                 }
               },
               {
                 "@type": "Question",
-                "name": "When should I test my webshop?",
+                "name": "Can you test before a sales campaign?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Before launch, after a redesign, theme or plugin update, after a payment provider change and before big campaigns."
+                  "text": "Yes. Testing before a campaign or seasonal peak is one of the most common reasons to book."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take?",
+                "name": "What if users add to cart but don’t buy?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Reports typically arrive within 2–3 working days, depending on scope."
+                  "text": "That is a drop-off problem. A drop-off audit looks at why customers abandon the checkout and what to fix first."
                 }
               }
             ]
@@ -107,28 +114,22 @@
           Probamo
         </a>
         <nav class="nav" aria-label="Main">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/book-a-call" class="nav-cta">Book a call</a>
         </nav>
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-          aria-label="Open menu"
-        >
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
           <span class="menu-toggle-text">Menu</span>
         </button>
       </div>
       <nav id="mobile-nav" class="mobile-nav" hidden>
         <div class="mobile-nav-inner">
-          <a href="/#acceptance">Acceptance testing</a>
-          <a href="/#drop-off">Drop-off audit</a>
-          <a href="/#manual-qa">Manual QA</a>
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/#how">How we work</a>
           <a href="/#experience">Experience</a>
           <a href="/#contact">Contact</a>
@@ -140,15 +141,13 @@
     <main id="main">
       <section class="hero page-hero">
         <div class="container">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Webshop QA</span>
-          </nav>
-          <p class="eyebrow">Webshop and e-commerce testing</p>
-          <h1>Webshop testing that follows the whole order, from product page to confirmation email</h1>
-          <p class="lead">Checkout bugs cost sales quietly. We place test orders the way your customers do and report anything that blocks, confuses or breaks the purchase.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="/manual-qa-testing">Manual QA testing</a> <span aria-hidden="true">/</span> <span aria-current="page">Webshop QA</span></nav>
+          <p class="eyebrow">Manual QA testing</p>
+          <h1>Webshop testing: from product page to order confirmation</h1>
+          <p class="lead">Lost checkouts are lost revenue. We test your shop end to end with test orders, on the devices your customers use, and report everything that stands between a visitor and a completed order.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/book-a-call">Book a call with us</a>
-            <a class="btn btn-ghost" href="/#reports">See an example finding</a>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
+            <a class="btn btn-ghost" href="/#reports">See how we report</a>
           </div>
         </div>
       </section>
@@ -158,107 +157,104 @@
           <header class="section-head section-head-tight">
             <h2 id="tests-h">What we test</h2>
           </header>
-          <div class="cards cards-why">
+          <div class="cards cards-three">
             <article class="card">
               <h3>Product pages</h3>
-              <p>Images, variants, prices, stock messages and add-to-cart.</p>
+              <p>Variants, prices, stock, images and add-to-cart on desktop and mobile.</p>
             </article>
             <article class="card">
-              <h3>Cart</h3>
-              <p>Quantities, totals, shipping costs and discount codes.</p>
+              <h3>Cart and checkout</h3>
+              <p>Discount codes, shipping rules, delivery countries, taxes and address validation.</p>
             </article>
             <article class="card">
-              <h3>Checkout</h3>
-              <p>Address, shipping and payment steps, completed with a test product.</p>
+              <h3>Payments</h3>
+              <p>Test payments with each method you offer, including failed and cancelled payments.</p>
             </article>
             <article class="card">
-              <h3>After the purchase</h3>
-              <p>Confirmation page, order emails and customer account access.</p>
+              <h3>Order emails</h3>
+              <p>Confirmations, invoices, shipping notifications and what the customer sees after paying.</p>
             </article>
             <article class="card">
-              <h3>Mobile shopping</h3>
-              <p>The full purchase on a phone, where most checkouts happen.</p>
+              <h3>Accounts</h3>
+              <p>Registration, login, password reset and order history.</p>
             </article>
             <article class="card">
-              <h3>The rest of the shop</h3>
-              <p>Everything in Website QA: forms, links, layout and content.</p>
+              <h3>Search and filters</h3>
+              <p>Finding products the way customers search for them.</p>
             </article>
           </div>
         </div>
       </section>
-
       <section class="section" aria-labelledby="how-h">
         <div class="container">
           <header class="section-head section-head-tight">
-            <h2 id="how-h">How it works</h2>
+            <h2 id="how-h">How we work</h2>
           </header>
-          <ol class="steps">
+          <ol class="steps steps-four">
             <li class="step">
               <span class="step-n">1</span>
-              <h3>Share access</h3>
-              <p>Send the URL, build or login details and tell us which flows matter most. We confirm scope and price before we start.</p>
+              <h3>Intro call</h3>
+              <p>Tell us about the product or project, your concerns and your deadline.</p>
             </li>
             <li class="step">
               <span class="step-n">2</span>
-              <h3>We test as real users</h3>
-              <p>A person works through your product on real devices, looking for anything that breaks, confuses or blocks.</p>
+              <h3>Scope and quote</h3>
+              <p>We define what will be tested and how many testing days it takes, then send a fixed quote.</p>
             </li>
             <li class="step">
               <span class="step-n">3</span>
-              <h3>You get a report</h3>
-              <p>Written findings with steps to reproduce, severity, impact and screenshots or video, typically within 2–3 working days.</p>
+              <h3>Testing</h3>
+              <p>We test against your requirements and real use, and flag blockers as soon as they appear.</p>
+            </li>
+            <li class="step">
+              <span class="step-n">4</span>
+              <h3>Report and retest</h3>
+              <p>You receive the report and recommendation, and we retest fixes before sign-off.</p>
             </li>
           </ol>
-        </div>
-      </section>
-
-      <section class="section section-alt" aria-labelledby="price-h">
-        <div class="container service-pricing">
-          <div>
-            <h2 id="price-h">Scope and price</h2>
-            <p>Every project is quoted individually. After a short intro call, you receive a fixed quote stating what will be tested, on which devices, and how many testing days are included.</p>
-            <p class="price-note-line">One-off projects: 50% upfront, the rest within 7 days of the report. No VAT is added.</p>
-          </div>
-          <div class="service-cta">
-            <a class="btn btn-primary btn-block" href="/book-a-call">Book a call with us</a>
-            <a class="text-link" href="/#how">How we work →</a>
+          <div class="cta-band">
+            <div>
+              <h3>Discuss your project with us</h3>
+              <p>Every project is quoted individually, with the scope and testing days stated upfront.</p>
+            </div>
+            <a class="btn btn-primary" href="/book-a-call?service=Manual%20QA%20testing">Book a call with us</a>
           </div>
         </div>
       </section>
-
-      <section class="section" aria-labelledby="faq-h">
-        <div class="container faq-wrap">
-          <header class="section-head section-head-tight">
-            <h2 id="faq-h">Questions</h2>
-          </header>
-          <div class="faq">
+      <section class="section section-alt" aria-labelledby="faq-h">
+        <div class="container">
+          <div class="faq-wrap">
+            <header class="section-head section-head-tight">
+              <h2 id="faq-h">Questions</h2>
+            </header>
+            <div class="faq">
             <details class="faq-item">
               <summary>Will you place real orders?</summary>
-              <p>We test with a test product and safe test payment details, ideally on a staging copy of your shop. If you only have a live shop, we agree the approach with you first.</p>
+              <p>We use test modes and test payment methods wherever possible. If a real order is needed, we agree it with you first.</p>
             </details>
             <details class="faq-item">
               <summary>Which shop platforms do you test?</summary>
-              <p>Any webshop we can get access to, whether it runs on a platform such as Shopify or WooCommerce or is custom-built. We test what your customers see, not the code.</p>
+              <p>Any platform: we test what customers see and do, whether the shop runs on a hosted platform or custom software.</p>
             </details>
             <details class="faq-item">
-              <summary>When should I test my webshop?</summary>
-              <p>Before launch, after a redesign, theme or plugin update, after a payment provider change and before big campaigns.</p>
+              <summary>Can you test before a sales campaign?</summary>
+              <p>Yes. Testing before a campaign or seasonal peak is one of the most common reasons to book.</p>
             </details>
             <details class="faq-item">
-              <summary>How long does it take?</summary>
-              <p>Reports typically arrive within 2–3 working days, depending on scope.</p>
+              <summary>What if users add to cart but don’t buy?</summary>
+              <p>That is a drop-off problem. A drop-off audit looks at why customers abandon the checkout and what to fix first.</p>
             </details>
+            </div>
           </div>
         </div>
       </section>
-
-      <section class="section section-alt" aria-labelledby="related-h">
+      <section class="section" aria-labelledby="related-h">
         <div class="container">
           <h2 id="related-h" class="related-h">Related services</h2>
           <ul class="related-links">
-            <li><a href="/website-qa">Website QA testing →</a></li>
-            <li><a href="/digital-products-qa">Digital products QA →</a></li>
-            <li><a href="/regression-testing">Regression testing →</a></li>
+            <li><a href="/drop-off-audit">Drop-off audit</a></li>
+            <li><a href="/website-qa">Website QA</a></li>
+            <li><a href="/manual-qa-testing">Manual QA testing</a></li>
           </ul>
         </div>
       </section>
@@ -266,18 +262,22 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent manual QA</p>
-        <p class="footer-small">Human feedback for builders, startups, and AI-assisted products.</p>
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
         <nav class="footer-services" aria-label="Services">
+          <a href="/acceptance-testing">Acceptance testing</a>
+          <a href="/drop-off-audit">Drop-off audit</a>
+          <a href="/manual-qa-testing">Manual QA testing</a>
           <a href="/website-qa">Website QA</a>
           <a href="/webshop-qa">Webshop QA</a>
-          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/mobile-app-testing">Mobile app testing</a>
           <a href="/regression-testing">Regression testing</a>
           <a href="/ai-app-testing">AI-built apps</a>
-          <a href="/digital-products-qa">Digital products</a>
           <a href="/iot-hardware-testing">IoT &amp; hardware</a>
         </nav>
         <nav class="footer-legal" aria-label="Legal">
+          <a href="/book-a-call">Book a call</a>
+          <span aria-hidden="true">·</span>
           <a href="/privacy">Privacy policy</a>
           <span aria-hidden="true">·</span>
           <a href="/terms">Terms &amp; conditions</a>

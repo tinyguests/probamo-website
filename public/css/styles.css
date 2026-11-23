@@ -2310,3 +2310,19 @@ h1, h2, h3 { overflow-wrap: break-word; hyphens: manual; }
   .cta-band { padding: 1.25rem; }
   .cta-band .btn { width: 100%; }
 }
+
+/* ---------- Service pages ---------- */
+.prose { max-width: 46rem; }
+.prose h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 1rem; }
+.prose p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.75; }
+.proof-list-cols { columns: 2; column-gap: 2.5rem; max-width: 60rem; }
+.proof-list-cols li { break-inside: avoid; }
+.more-link { display: inline-block; margin-top: 0.9rem; }
+.foot-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.page-hero h1 { max-width: 22ch; }
+.page-hero .lead { max-width: 44rem; }
+@media (max-width: 600px) {
+  .proof-list-cols { columns: 1; }
+  .foot-actions { width: 100%; }
+}
+.page-hero .container { width: var(--container); max-width: none; }
