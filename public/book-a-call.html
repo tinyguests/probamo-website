@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Book an intro call with Probamo to discuss acceptance testing, manual QA testing or a drop-off audit for your software. Tell us about your product, concerns and deadlines."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://probamo.com/book-a-call" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Probamo" />
+    <meta property="og:title" content="Book a call — Probamo independent software testing" />
+    <meta property="og:description" content="Discuss acceptance testing, manual QA testing or a drop-off audit for your software." />
+    <meta property="og:url" content="https://probamo.com/book-a-call" />
+    <meta property="og:image" content="https://probamo.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Book a call — Probamo independent software testing</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/spacegrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://probamo.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Book a call", "item": "https://probamo.com/book-a-call" }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="/">
+          <span class="logo-mark" aria-hidden="true">◈</span>
+          Probamo
+        </a>
+        <nav class="nav" aria-label="Main">
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA</a>
+          <a href="/#how">How we work</a>
+          <a href="/book-a-call" class="nav-cta" aria-current="page">Book a call</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="menu-toggle-text">Menu</span>
+        </button>
+      </div>
+      <nav id="mobile-nav" class="mobile-nav" hidden>
+        <div class="mobile-nav-inner">
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA</a>
+          <a href="/#how">How we work</a>
+          <a href="/#experience">Experience</a>
+          <a href="/#contact">Contact</a>
+          <a href="/book-a-call" class="mobile-nav-cta" aria-current="page">Book a call</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="booking" class="section booking">
+        <div class="container booking-grid">
+          <div class="booking-intro">
+            <p class="eyebrow">Book a call</p>
+            <h1>Book an intro call with us</h1>
+            <p class="lead">
+              Tell us about your product or project before the call. We review it in advance, so the call is spent on
+              your situation, not on introductions.
+            </p>
+
+            <h2 class="proof-subhead">What to expect</h2>
+            <ol class="booking-steps">
+              <li><strong>We review your request</strong> and reply by email with suggested times for a video call.</li>
+              <li><strong>Intro call.</strong> We discuss the product, your concerns, deadlines and what a good outcome looks like.</li>
+              <li><strong>Scope and fixed quote.</strong> You receive a written proposal stating what will be tested and how many testing days it includes.</li>
+            </ol>
+
+            <ul class="booking-facts">
+              <li>The call carries no obligation.</li>
+              <li>Where sensitive information is involved, a non-disclosure agreement can be signed before the call.</li>
+              <li>Remote worldwide; on-site visits by prior agreement.</li>
+            </ul>
+          </div>
+
+          <form class="contact-form booking-form" action="/api/contact" method="post" novalidate data-enquiry-form
+            data-success="&lt;h3&gt;Thank you, your request has been received.&lt;/h3&gt;&lt;p&gt;We will review it and reply by email with suggested times for the call.&lt;/p&gt;">
+            <input type="hidden" name="form_type" value="call" />
+
+            <fieldset class="form-group field-wide">
+              <legend>About you</legend>
+              <div class="field">
+                <label for="bc-name">Full name</label>
+                <input id="bc-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+              </div>
+              <div class="field">
+                <label for="bc-position">Position in the company</label>
+                <input id="bc-position" name="position" type="text" autocomplete="organization-title" maxlength="100" required />
+              </div>
+              <div class="field">
+                <label for="bc-email">Work email</label>
+                <input id="bc-email" name="email" type="email" autocomplete="email" maxlength="200" required />
+              </div>
+              <div class="field">
+                <label for="bc-phone">Phone <span class="optional">optional</span></label>
+                <input id="bc-phone" name="phone" type="tel" autocomplete="tel" maxlength="50" />
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group field-wide">
+              <legend>About the company</legend>
+              <div class="field">
+                <label for="bc-company">Company name</label>
+                <input id="bc-company" name="company" type="text" autocomplete="organization" maxlength="200" required />
+              </div>
+              <div class="field">
+                <label for="bc-company-id">Registration number or address <span class="optional">optional</span></label>
+                <input id="bc-company-id" name="company_id" type="text" maxlength="300" />
+              </div>
+              <div class="field field-wide">
+                <label for="bc-website">Company or product website <span class="optional">optional</span></label>
+                <input id="bc-website" name="website" type="text" inputmode="url" autocomplete="url" maxlength="300" placeholder="https://" />
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group field-wide">
+              <legend>About the project</legend>
+              <div class="field field-wide">
+                <label for="bc-service">Service you need</label>
+                <select id="bc-service" name="package" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="Acceptance testing">Acceptance testing</option>
+                  <option value="Drop-off audit">Drop-off audit</option>
+                  <option value="Manual QA testing">Manual QA testing</option>
+                  <option value="Ongoing testing">Ongoing testing</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+              </div>
+              <div class="field field-wide">
+                <label for="bc-message">Describe what you are looking for</label>
+                <textarea id="bc-message" name="message" rows="6" maxlength="5000" required
+                  placeholder="The product or system, who built it, what concerns you, and what a good outcome would be."></textarea>
+              </div>
+              <div class="field field-wide">
+                <label for="bc-deadline">Deadlines <span class="optional">optional</span></label>
+                <input id="bc-deadline" name="deadline" type="text" maxlength="300" placeholder="Release, sign-off or launch dates" />
+              </div>
+            </fieldset>
+
+            <div class="field-trap" aria-hidden="true">
+              <label for="bc-company-website">Leave this field empty</label>
+              <input id="bc-company-website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="form-footer field-wide">
+              <button type="submit" class="btn btn-primary">Request a call</button>
+              <p class="form-note">We only use your details to arrange the call. See the <a href="/privacy">privacy policy</a>.</p>
+            </div>
+            <p class="form-status field-wide" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><span class="logo-mark" aria-hidden="true">◈</span> Probamo — independent software testing</p>
+        <p class="footer-small">Acceptance testing, manual QA and drop-off audits. Remote worldwide, on-site by agreement.</p>
+        <nav class="footer-services" aria-label="Services">
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA testing</a>
+          <a href="/regression-testing">Regression testing</a>
+          <a href="/mobile-app-testing">Mobile apps</a>
+          <a href="/iot-hardware-testing">IoT &amp; hardware</a>
+          <a href="/website-qa">Website QA</a>
+          <a href="/webshop-qa">Webshop QA</a>
+          <a href="/ai-app-testing">AI-built apps</a>
+        </nav>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="/privacy">Privacy policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/terms">Terms &amp; conditions</a>
+        </nav>
+        <p class="footer-entity">
+          PROBAMO, obrt za usluge i trgovinu, vl. Sara Lubura · Biševska Ulica 2, Veliko Polje, Zagreb, Croatia ·
+          Registered in the Croatian Register of Crafts (Obrtni registar), MBO 99405709 ·
+          <a href="mailto:testing@probamo.com">testing@probamo.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

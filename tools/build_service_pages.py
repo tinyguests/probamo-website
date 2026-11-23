@@ -22,12 +22,12 @@ SERVICES = [
         "nav": "Website QA",
         "package": "Website QA",
         "title": "Website QA Testing Service | Probamo",
-        "description": "Manual website QA testing by real people: forms, links, layout and core functions across devices. Bug report with screenshots. From €55.",
+        "description": "Manual website QA testing by real people: forms, links, layout and core functions across devices. Bug report with screenshots.",
         "eyebrow": "Website QA testing",
         "h1": "Website QA testing by real people, before your visitors find the bugs",
         "lead": "We click through your site the way visitors do — every button, form, link and layout — and send a clear bug report with screenshots, so you can fix problems before they cost you enquiries.",
         "service_type": "Website QA testing",
-        "price_from": "55",
+        "price_from": None,
         "tests": [
             ("Forms and validation", "Contact, sign-up and booking forms: required fields, error messages and confirmation emails."),
             ("Links and navigation", "Broken links, wrong targets, menus and anchor links on desktop and mobile."),
@@ -54,12 +54,12 @@ SERVICES = [
         "nav": "Webshop QA",
         "package": "Webshop QA",
         "title": "Webshop & E-commerce QA Testing | Probamo",
-        "description": "Manual e-commerce testing for webshops: product pages, cart, checkout and order emails tested end-to-end with a test order. From €75.",
+        "description": "Manual e-commerce testing for webshops: product pages, cart, checkout and order emails tested end-to-end with a test order.",
         "eyebrow": "Webshop and e-commerce testing",
         "h1": "Webshop testing that follows the whole order, from product page to confirmation email",
         "lead": "Checkout bugs cost sales quietly. We place test orders the way your customers do and report anything that blocks, confuses or breaks the purchase.",
         "service_type": "E-commerce QA testing",
-        "price_from": "75",
+        "price_from": None,
         "tests": [
             ("Product pages", "Images, variants, prices, stock messages and add-to-cart."),
             ("Cart", "Quantities, totals, shipping costs and discount codes."),
@@ -257,10 +257,11 @@ def header():
           Probamo
         </a>
         <nav class="nav" aria-label="Main">
-          <a href="/#why">Why us</a>
-          <a href="/#services">Services</a>
-          <a href="/#pricing">Pricing</a>
-          <a href="/#contact" class="nav-cta">Get a quote</a>
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA</a>
+          <a href="/#how">How we work</a>
+          <a href="/book-a-call" class="nav-cta">Book a call</a>
         </nav>
         <button
           class="menu-toggle"
@@ -275,10 +276,13 @@ def header():
       </div>
       <nav id="mobile-nav" class="mobile-nav" hidden>
         <div class="mobile-nav-inner">
-          <a href="/#why">Why us</a>
-          <a href="/#services">Services</a>
-          <a href="/#pricing">Pricing</a>
-          <a href="/#contact" class="mobile-nav-cta">Get a quote</a>
+          <a href="/#acceptance">Acceptance testing</a>
+          <a href="/#drop-off">Drop-off audit</a>
+          <a href="/#manual-qa">Manual QA</a>
+          <a href="/#how">How we work</a>
+          <a href="/#experience">Experience</a>
+          <a href="/#contact">Contact</a>
+          <a href="/book-a-call" class="mobile-nav-cta">Book a call</a>
         </div>
       </nav>
     </header>'''
@@ -357,7 +361,7 @@ def esc(text):
 
 def page(s):
     url = f'{SITE}/{s["slug"]}'
-    quote_href = f'/?package={s["package"].replace(" ", "%20").replace(",", "%2C")}#contact'
+    quote_href = "/book-a-call"
     tests = "\n".join(
         f'''            <article class="card">
               <h3>{esc(t)}</h3>
@@ -403,8 +407,8 @@ def page(s):
     <title>{esc(s["title"])}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#0a0e14" />
-    <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="application/ld+json">
 {structured_data(s)}
@@ -412,7 +416,6 @@ def page(s):
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="bg-grid" aria-hidden="true"></div>
 
 {header()}
 
@@ -426,8 +429,8 @@ def page(s):
           <h1>{esc(s["h1"])}</h1>
           <p class="lead">{esc(s["lead"])}</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="{quote_href}">Request a quote</a>
-            <a class="btn btn-ghost" href="/#deliverables">See an example finding</a>
+            <a class="btn btn-primary" href="{quote_href}">Book a call with us</a>
+            <a class="btn btn-ghost" href="/#reports">See an example finding</a>
           </div>
         </div>
       </section>
@@ -457,13 +460,13 @@ def page(s):
       <section class="section section-alt" aria-labelledby="price-h">
         <div class="container service-pricing">
           <div>
-            <h2 id="price-h">Pricing</h2>
-{pricing}
-            <p class="price-note-line">50% upfront to confirm your booking. No VAT is added.</p>
+            <h2 id="price-h">Scope and price</h2>
+            <p>Every project is quoted individually. After a short intro call, you receive a fixed quote stating what will be tested, on which devices, and how many testing days are included.</p>
+            <p class="price-note-line">One-off projects: 50% upfront, the rest within 7 days of the report. No VAT is added.</p>
           </div>
           <div class="service-cta">
-            <a class="btn btn-primary btn-block" href="{quote_href}">Request a quote</a>
-            <a class="text-link" href="/#pricing">All packages and prices →</a>
+            <a class="btn btn-primary btn-block" href="{quote_href}">Book a call with us</a>
+            <a class="text-link" href="/#how">How we work →</a>
           </div>
         </div>
       </section>

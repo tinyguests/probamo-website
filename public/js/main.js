@@ -27,13 +27,13 @@ if (menuToggle && mobileNav) {
   });
 }
 
-// Contact form
-const contactForm = document.getElementById("contact-form");
-
-if (contactForm) {
-  const status = document.getElementById("form-status");
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const packageSelect = document.getElementById("cf-package");
+// Enquiry forms (homepage question form and the "Book a call" form)
+document.querySelectorAll("form[data-enquiry-form]").forEach((form) => {
+  const status = form.querySelector(".form-status");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const submitLabel = submitButton.textContent;
+  const serviceSelect = form.querySelector("select[name='package']");
+  const successHtml = form.dataset.success;
 
   const showStatus = (message, isError) => {
     status.textContent = message;
@@ -41,44 +41,33 @@ if (contactForm) {
   };
 
   const showSuccess = () => {
-    contactForm.innerHTML =
-      '<div class="form-success" tabindex="-1"><h3>Thanks, your enquiry is on its way.</h3>' +
-      "<p>We’ll reply by email to confirm scope and timing. If it’s urgent, write to testing@probamo.com.</p></div>";
-    contactForm.querySelector(".form-success").focus();
+    form.innerHTML = `<div class="form-success" tabindex="-1">${successHtml}</div>`;
+    form.querySelector(".form-success").focus();
   };
 
-  // Pre-select the package when a "Book" or "Request quote" link is used
-  document.querySelectorAll("a[data-package]").forEach((link) => {
-    link.addEventListener("click", () => {
-      packageSelect.value = link.dataset.package;
-    });
-  });
-
-  // Pre-select the package from a link such as /?package=Website%20QA#contact (used by service pages)
-  const requestedPackage = new URLSearchParams(window.location.search).get("package");
-  if (requestedPackage && [...packageSelect.options].some((o) => o.value === requestedPackage)) {
-    packageSelect.value = requestedPackage;
+  // Pre-select the service from a link such as /book-a-call?service=Drop-off%20audit
+  const params = new URLSearchParams(window.location.search);
+  const requested = params.get("service") || params.get("package");
+  if (serviceSelect && requested && [...serviceSelect.options].some((o) => o.value === requested)) {
+    serviceSelect.value = requested;
   }
 
   // Result of a submission made without JavaScript
-  const result = new URLSearchParams(window.location.search).get("enquiry");
+  const result = params.get("enquiry");
   if (result === "sent") showSuccess();
-  if (result === "error") {
-    showStatus("We couldn’t send your message. Please email testing@probamo.com directly.", true);
-  }
+  if (result === "error") showStatus("We couldn’t send your message. Please email testing@probamo.com directly.", true);
 
-  contactForm.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const required = ["cf-name", "cf-email", "cf-message"].map((id) => document.getElementById(id));
     let firstInvalid = null;
-    required.forEach((input) => {
-      const invalid = !input.value.trim() || (input.type === "email" && !input.checkValidity());
+    form.querySelectorAll("[required]").forEach((input) => {
+      const invalid = !input.value.trim() || !input.checkValidity();
       input.setAttribute("aria-invalid", String(invalid));
       if (invalid && !firstInvalid) firstInvalid = input;
     });
     if (firstInvalid) {
-      showStatus("Please fill in your name, a valid email address and what we should test.", true);
+      showStatus("Please complete the required fields marked above.", true);
       firstInvalid.focus();
       return;
     }
@@ -88,9 +77,9 @@ if (contactForm) {
     showStatus("", false);
 
     try {
-      const response = await fetch(contactForm.action, {
+      const response = await fetch(form.action, {
         method: "POST",
-        body: new FormData(contactForm),
+        body: new FormData(form),
         headers: { Accept: "application/json" },
       });
       const outcome = await response.json().catch(() => ({}));
@@ -104,9 +93,9 @@ if (contactForm) {
     }
 
     submitButton.disabled = false;
-    submitButton.textContent = "Send enquiry";
+    submitButton.textContent = submitLabel;
   });
-}
+});
 
 // Copy buttons
 document.querySelectorAll("[data-copy]").forEach((button) => {
@@ -122,13 +111,3 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     }, 2000);
   });
 });
-
-// Launch offer: switch to the regular price once the offer has ended
-const offer = document.querySelector("[data-offer-ends]");
-
-if (offer && Date.now() >= Date.parse(offer.dataset.offerEnds)) {
-  document.querySelectorAll("[data-offer-price]").forEach((el) => {
-    el.textContent = offer.dataset.regularPrice;
-  });
-  offer.querySelectorAll(".price-offer, .price-was").forEach((el) => el.remove());
-}

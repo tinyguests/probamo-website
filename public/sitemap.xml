@@ -60,4 +60,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://probamo.com/book-a-call</loc>
+  </url>
 </urlset>
